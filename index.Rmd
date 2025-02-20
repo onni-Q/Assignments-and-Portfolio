@@ -6,7 +6,56 @@ output:
   flexdashboard::flex_dashboard:
     storyboard: true
 ---
+# Introduction
 
+## About Me & My Research
+
+### Background
+
+I'm [Your Name], a [Your Background/Area of Expertise].
+
+### Research Focus
+
+My research explores the intersection of AI and blues music, focusing on [specific areas].
+
+***
+
+## Corpus Description
+
+### Data Source
+
+The corpus for this analysis consists of [describe the source of your AI-generated blues music - e.g., a specific AI model, a collection of generated pieces].
+
+### Corpus Characteristics
+
+The corpus includes [number] AI-generated blues compositions, characterized by [key features of the music, e.g., tempo range, instrumentation, lyrical themes].
+
+***
+
+## Research Questions
+
+### Guiding Questions
+
+This analysis aims to answer the following research questions: [list your key research questions].
+
+
+# Visualization
+
+## [Visualization Title]
+
+### Commentary
+
+[Provide detailed commentary on your visualization. Explain what the visualization shows, the patterns you've observed, and how it relates to your research questions.  This is the core of your portfolio, so be thorough and insightful.]
+
+#### Key Observations
+
+[Highlight the most important observations from your visualization.]
+
+#### Implications
+
+[Discuss the implications of your findings for understanding AI-generated blues music.]
+
+### Visualization
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
