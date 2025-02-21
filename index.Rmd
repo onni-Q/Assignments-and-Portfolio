@@ -13,15 +13,14 @@ output:
 
 I'm Onni, a third-year media and info student and Blues enthusiast. This portfolio analyzes two AI-generated Blues songs I created for a course assignment.
 
-***
+------------------------------------------------------------------------
 
 ## Corpus Description
 
 ### Data Source
 
-The corpus consists of musical information about the two AI-generated Blues songs.  The data is stored in a CSV file located at `/Users/olenonniboi/Desktop/mysoundtrackanalysis.csv`. This file should contain columns like `song_name`, `tempo`, `key`, `mode`, `instruments`, etc.  *(Make sure this path is correct and accessible from where you're running the R Markdown file.  If you're publishing this, consider a relative path or including the CSV in the same directory.)*
 
-***
+------------------------------------------------------------------------
 
 # Visualization 
 
@@ -29,16 +28,14 @@ The corpus consists of musical information about the two AI-generated Blues song
 
 ### Commentary
 
-... (Your existing commentary about Suno AI and the prompts) ...
 
 #### Key Observations
 
-... (Your existing observations about tempo, instrumentation, mood, etc.) ...
 
 #### Implications
 
-... (Your existing discussion of prompt engineering, AI capabilities, etc.) ...
 
 ### Visualization
 
-# Conclusion 
+---------------------------------------------------------------------------
+# Conclusion and Discussion
