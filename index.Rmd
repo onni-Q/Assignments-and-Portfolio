@@ -1,22 +1,17 @@
 ---
-title: "Gen AI Blues Analysis Portfolio"
-author: "Onni"
-date: "2025-02-20"
-output: 
+title: "AI Blues Analysis Portfolio"
+output:
   flexdashboard::flex_dashboard:
     storyboard: true
 ---
+
 # Introduction
 
 ## About Me & My Research
 
 ### Background
 
-I'm [Your Name], a [Your Background/Area of Expertise].
-
-### Research Focus
-
-My research explores the intersection of AI and blues music, focusing on [specific areas].
+I'm Onni, a third-year media and info student and Blues enthusiast. This portfolio analyzes two AI-generated Blues songs I created for a course assignment.
 
 ***
 
@@ -24,58 +19,26 @@ My research explores the intersection of AI and blues music, focusing on [specif
 
 ### Data Source
 
-The corpus for this analysis consists of [describe the source of your AI-generated blues music - e.g., a specific AI model, a collection of generated pieces].
-
-### Corpus Characteristics
-
-The corpus includes [number] AI-generated blues compositions, characterized by [key features of the music, e.g., tempo range, instrumentation, lyrical themes].
+The corpus consists of musical information about the two AI-generated Blues songs.  The data is stored in a CSV file located at `/Users/olenonniboi/Desktop/mysoundtrackanalysis.csv`. This file should contain columns like `song_name`, `tempo`, `key`, `mode`, `instruments`, etc.  *(Make sure this path is correct and accessible from where you're running the R Markdown file.  If you're publishing this, consider a relative path or including the CSV in the same directory.)*
 
 ***
 
-## Research Questions
+# Visualization 
 
-### Guiding Questions
-
-This analysis aims to answer the following research questions: [list your key research questions].
-
-
-# Visualization
-
-## [Visualization Title]
+## AI-Generated Blues Comparison
 
 ### Commentary
 
-[Provide detailed commentary on your visualization. Explain what the visualization shows, the patterns you've observed, and how it relates to your research questions.  This is the core of your portfolio, so be thorough and insightful.]
+... (Your existing commentary about Suno AI and the prompts) ...
 
 #### Key Observations
 
-[Highlight the most important observations from your visualization.]
+... (Your existing observations about tempo, instrumentation, mood, etc.) ...
 
 #### Implications
 
-[Discuss the implications of your findings for understanding AI-generated blues music.]
+... (Your existing discussion of prompt engineering, AI capabilities, etc.) ...
 
 ### Visualization
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
-### R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-### Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+# Conclusion 
