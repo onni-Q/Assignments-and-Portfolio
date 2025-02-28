@@ -8,7 +8,8 @@ output:
 ```{r setup, include=FALSE}
 library(ggplot2)
 library(dplyr) # Load dplyr for the pipe operator
-
+library(tidyverse)
+source("compmus.R")
 ```
 # Introduction
 
@@ -28,68 +29,71 @@ I'm Onni, a third-year media and info student and Blues enthusiast. This portfol
 ------------------------------------------------------------------------
 
 # Visualization 
+### Chromagram
 
-## AI-Generated Blues Comparison
-
-### Commentary
-
-
-#### Key Observations
-
-
-#### Implications
-
-
-### Visualization
 ```{r}
-# Load your data (correct way)
-compmus_data <- read.csv("compmus2025.csv") # Make sure the file path is correct
-
-# Check your data
-print(head(compmus_data))
-str(compmus_data)
-
-# Correct way to use the pipe with ggplot2 (using a tibble or data frame)
-compmus_data %>%  # Start with the data frame
-  ggplot(aes(
-    x = tempo,
-    y = arousal,
-    size = instrumentalness,
-    colour = danceability
-  )) +
-  geom_point() +
-  geom_rug(linewidth = 0.1) +
-  geom_text(
-    x = 121,
-    y = 4.91,
-    label = "Onda Corta - Sud America",
-    size = 3,
-    hjust = "left",
-    vjust = "center",
-    angle = 30
-  ) +
-  scale_x_continuous(
-    limits = c(50, 200),
-    breaks = c(50, 100, 150, 200),
-    minor_breaks = NULL
-  ) +
+"features/onni-q-2.json" |>                           # Change the track
+  compmus_chroma(norm = "identity") |>                 # Change the norm
+  ggplot(aes(x = time, y = pc, fill = value)) + 
+  geom_raster() +
   scale_y_continuous(
-    limits = c(1, 9),
-    breaks = c(1, 5, 9),
-    minor_breaks = NULL
+    breaks = 0:11,
+    minor_breaks = NULL,
+    labels = c(
+                "C", "C#|Db", "D", "D#|Eb",
+                "E", "F", "F#|Gb", "G",
+                "G#|Ab", "A", "A#|Bb", "B"
+              )
   ) +
-  scale_colour_viridis_c() +
-  scale_size_continuous(
-    trans = "exp",
-    guide = "none"
+  scale_fill_viridis_c(guide = "none") +               # Change the colours?
+  labs(x = "Time (s)", y = NULL, fill = NULL) +
+  theme_classic()                                      # Change the theme?
+```
+### Cepstrogram
+
+```{r}
+"features/onni-q-2.json" |>                           # Change the track
+  compmus_mfccs(norm = "identity") |>                  # Change the norm
+  ggplot(aes(x = time, y = mfcc, fill = value)) + 
+  geom_raster() +
+  scale_y_continuous(
+    breaks = 0:12,
+    minor_breaks = NULL,
   ) +
-  theme_light() +
-  labs(
-    x = "Tempo",
-    y = "Arousal",
-    colour = "Danceability"
-  )
+  scale_fill_viridis_c(guide = "none") +               # Change the colours?
+  labs(x = "Time (s)", y = "Coefficient Number", fill = NULL) +
+  theme_classic()                                      # Change the theme?
 ```
 
-  
+### Chroma-based self-similarity
+
+```{r}
+"features/onni-q-2.json" |>                           # Change the track
+  compmus_chroma(norm = "identity") |>                 # Change the norm
+  compmus_self_similarity(
+    feature = pc,
+    distance = "euclidean"                             # Change the distance
+  ) |>   
+  ggplot(aes(x = xtime, y = ytime, fill = d)) + 
+  geom_raster() +
+  scale_fill_viridis_c(guide = "none") +               # Change the colours?
+  labs(x = "Time (s)", y = NULL, fill = NULL) +
+  theme_classic()                                      # Change the theme?
+```
+
+### Timbre-based self-similarity
+
+```{r}
+"features/onni-q-2.json" |>                           # Change the track
+  compmus_mfccs(norm = "identity") |>                  # Change the norm
+  compmus_self_similarity(
+    feature = mfcc,
+    distance = "euclidean"                             # Change the distance
+  ) |>   
+  ggplot(aes(x = xtime, y = ytime, fill = d)) + 
+  geom_raster() +
+  scale_fill_viridis_c(guide = "none") +               # Change the colours?
+  labs(x = "Time (s)", y = NULL, fill = NULL) +
+  theme_classic()                                      # Change the theme?
+```
 
