@@ -111,59 +111,38 @@ key_templates <-
 
 ------------------------------------------------------------------------
 
-# Visualization week 7
 
-### Class Corpus Scatter Plot
+# Visualization week 7 Part I
+
+### Class Corpus Chart I
 
 ```{r}
 compmus2025 <- read_csv("compmus2025.csv")
+
 
 # Create an interactive plot with song titles as tooltips
 library(plotly)
 
 p <- compmus2025 |>
-  ggplot(aes(x = tempo, y = arousal, text = filename)) + # Add 'text' aesthetic
-  geom_point() +
-  geom_smooth() +
-  theme_minimal()
-
-ggplotly(p, tooltip = "text") # Convert to interactive plot with tooltips
-```
-
-### Class Corpus Danceability Chart
-```{r}
-compmus2025 <- read_csv("compmus2025.csv")
-
-p <- compmus2025 |>
   ggplot(
     aes(
-      x = tempo,
+      x = instrumentalness,
       y = arousal,
-      size = instrumentalness,
-      colour = danceability,
+      size = danceability,
+      colour = valence,
       text = filename  # Add tooltip text
     )
   ) +
   geom_point() +
   geom_rug(linewidth = 0.1) +
-  # Remove the static text label. If you need to keep it, you will have to create a separate dataframe with the label data and use geom_text with that.
-  # geom_text(
-  #   x = 121,
-  #   y = 4.91,
-  #   label = "Onda Corta - Sud America",
-  #   size = 3,
-  #   hjust = "left",
-  #   vjust = "center",
-  #   angle = 30
-  # ) +
   scale_x_continuous(
-    limits = c(50, 200),
-    breaks = c(50, 100, 150, 200),
+    limits = c(0, 1),
+    breaks = c(0, 0.25, 0.5, 0.75, 1),
     minor_breaks = NULL
   ) +
   scale_y_continuous(
-    limits = c(1, 9),
-    breaks = c(1, 5, 9),
+    limits = c(3, 7),
+    breaks = c(3, 4, 5, 6, 7),
     minor_breaks = NULL
   ) +
   scale_colour_viridis_c() +
@@ -173,15 +152,153 @@ p <- compmus2025 |>
   ) +
   theme_light() +
   labs(
-    x = "Tempo",
+    x = "Instrumentalness",
     y = "Arousal",
-    colour = "Danceability"
+    colour = "Valence"
+  )
+
+ggplotly(p, tooltip = "text") # Convert to interactive plot with tooltips
+```
+
+---------------------------------------------------------------------------------
+
+
+### Class Corpus Chart II
+```{r}
+compmus2025 <- read_csv("compmus2025.csv")
+
+p <- compmus2025 |>
+  ggplot(
+    aes(
+      x = instrumentalness,
+      y = arousal,
+      size = engagingness,
+      colour = valence,
+      text = filename  # Add tooltip text
+    )
+  ) +
+  geom_point() +
+  geom_rug(linewidth = 0.1) +
+  scale_x_continuous(
+    limits = c(0, 1),
+    breaks = c(0, 0.25, 0.5, 0.75, 1),
+    minor_breaks = NULL
+  ) +
+  scale_y_continuous(
+    limits = c(3, 7),
+    breaks = c(3, 4, 5, 6, 7),
+    minor_breaks = NULL
+  ) +
+  scale_colour_viridis_c() +
+  scale_size_continuous(
+    trans = "exp",
+    guide = "none"
+  ) +
+  theme_light() +
+  labs(
+    x = "Instrumentalness",
+    y = "Arousal",
+    colour = "Valence"
   )
 
 ggplotly(p, tooltip = "text")
 ```
 
-------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+
+
+# Visualization week 7 Part II
+
+### Class Corpus Chart III
+
+```{r}
+compmus2025 <- read_csv("compmus2025.csv")
+
+
+# Create an interactive plot with song titles as tooltips
+library(plotly)
+
+p <- compmus2025 |>
+  ggplot(
+    aes(
+      x = danceability,
+      y = arousal,
+      size = engagingness,
+      colour = valence,
+      text = filename  # Add tooltip text
+    )
+  ) +
+  geom_point() +
+  geom_rug(linewidth = 0.1) +
+  scale_x_continuous(
+    limits = c(0, 1),
+    breaks = c(0, 0.25, 0.5, 0.75, 1),
+    minor_breaks = NULL
+  ) +
+  scale_y_continuous(
+    limits = c(3, 7),
+    breaks = c(3, 4, 5, 6, 7),
+    minor_breaks = NULL
+  ) +
+  scale_colour_viridis_c() +
+  scale_size_continuous(
+    trans = "exp",
+    guide = "none"
+  ) +
+  theme_light() +
+  labs(
+    x = "Danceability",
+    y = "Arousal",
+    colour = "Valence"
+  )
+
+ggplotly(p, tooltip = "text") # Convert to interactive plot with tooltips
+```
+
+---------------------------------------------------------------------------------
+
+
+### Class Corpus Chart IV
+```{r}
+compmus2025 <- read_csv("compmus2025.csv")
+
+p <- compmus2025 |>
+  ggplot(
+    aes(
+      x = engagingness,
+      y = arousal,
+      size = danceability,
+      colour = valence,
+      text = filename  # Add tooltip text
+    )
+  ) +
+  geom_point() +
+  geom_rug(linewidth = 0.1) +
+  scale_x_continuous(
+    limits = c(0, 1.2),
+    breaks = c(0, 0.3, 0.6, 0.9 , 1.2),
+    minor_breaks = NULL
+  ) +
+  scale_y_continuous(
+    limits = c(3, 7),
+    breaks = c(3, 4, 5, 6, 7),
+    minor_breaks = NULL
+  ) +
+  scale_colour_viridis_c() +
+  scale_size_continuous(
+    trans = "exp",
+    guide = "none"
+  ) +
+  theme_light() +
+  labs(
+    x = "Engagingness",
+    y = "Arousal",
+    colour = "Valence"
+  )
+
+ggplotly(p, tooltip = "text")
+```
+
 
 # Visualization Week 9 Structural Analysis Part I
 
@@ -242,7 +359,6 @@ ggplotly(p, tooltip = "text")
 ```
 
 --------------------------------------------------------------------------------
-
 
 #### onni-q-1 Timbre-based Self-Similarty
 ```{r}
