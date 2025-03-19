@@ -1,5 +1,5 @@
 ---
-title: "Arousal Analysis Portfolio__What Makes A Piece of Music Exciting?"
+title: "Arousal Analysis Portfolio__The Sonic Signitures of High-Arousal Tracks"
 output:
   flexdashboard::flex_dashboard:
     storyboard: true
@@ -11,24 +11,20 @@ library(dplyr) # Load dplyr for the pipe operator
 library(tidyverse)
 source("compmus.R")
 ```
+
+------------------------------------------------------------------------
+
 # Introduction
 
 ## About Me & My Research
 
 ### Background
 
-<p>
-What makes a piece of music exciting? Could it be its tempo, valence, engagingness, danceability, instrumentalness, approachability, or the combination of some of them? 
-</p>
+<p>What does an exciting piece of music sound like? What music moments relate the closest to its arousal? Could it be its tempo, valence, engagingness, danceability, instrumentalness, approachability, or the combination of some of them?</p>
 
-<p>
-In this portfolio, I intend to discover the factors that affect the arousal of a piece of music and how arousal is related to these factors. 
-</p>
+<p>In this portfolio, I intend to discover the factors that affect the arousal of a piece of music and how arousal is related to these factors.</p>
 
-<img src="https://media.giphy.com/media/2DtfA7nYrbNnIabEyK/giphy.gif?cid=790b76113xhraiivwyj25sxd5c8pe1zqxymedxyfkjzzftcm&ep=v1_gifs_search&rid=giphy.gif&ct=g" width="100" height="100">
-
-
---------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
 ## Corpus Description
 
@@ -124,7 +120,7 @@ key_templates <-
 
 # Part I: Tempo and Valence
 
-## Class Corpus Chart I Tempo-Arousal 
+## Class Corpus Chart I Tempo-Arousal
 
 ### Class Corpus Chart I Tempo-Arousal
 
@@ -134,43 +130,31 @@ compmus2025 <- read_csv("compmus2025.csv")
 compmus2025 |> ggplot(aes(x = tempo, y = arousal)) + geom_jitter() + geom_smooth()
 ```
 
-### Findings: 
+### Findings:
 
-<p>
-With Chart I, I intend to illustrate the relation between the tempo of a song and its arousal. 
-</p>
+<p>With Chart I, I intend to illustrate the relation between the tempo of a song and its arousal.</p>
 
-<p>
-Chart I indicates that the increase of tempo does not necessarily contribute to the increase of a song's arousal. Instead, it seems that most songs that sound more exciting and stimulating than others tend to have a tempo close to 100bpm. 
-</p>
+<p>Chart I indicates that the increase of tempo does not necessarily contribute to the increase of a song's arousal. Instead, it seems that most songs that sound more exciting and stimulating than others tend to have a tempo close to 100bpm.</p>
 
-<p>
-This means that there is a strong relation between valence and arousal.
-</p>
---------------------------------------------------------------------------------
+<p>This means that there is a strong relation between valence and arousal.</p>
 
+------------------------------------------------------------------------
 
 ## Class Corpus Chart II Valence-Arousal
 
 ### Class Corpus Chart II Valence-Arousal
 
 ```{r}
-compmus2025 |> ggplot(aes(x = valence, y = arousal)) + geom_jitter() + geom_smooth()
+compmus2025|> ggplot(aes(x = valence, y = arousal)) + geom_jitter() + geom_smooth()
 ```
 
-### Findings: 
+### Findings:
 
-<p>
-With Chart II, I intend to illustrate the relation between the valence of a song and its arousal. 
-</p>
+<p>With Chart II, I intend to illustrate the relation between the valence of a song and its arousal.</p>
 
-<p>
-Chart II indicates that the increase of valence does clearly contribute to the increase of a song's arousal. Indeed, it seems that the more positive and pleasant a piece of music sound, the more exciting and stimulating it would be. 
-</p>
+<p>Chart II indicates that the increase of valence does clearly contribute to the increase of a song's arousal. Indeed, it seems that the more positive and pleasant a piece of music sound, the more exciting and stimulating it would be.</p>
 
-
---------------------------------------------------------------------------------
-
+------------------------------------------------------------------------
 
 # Part II: Approachability and Instrumentalness
 
@@ -196,13 +180,13 @@ p <- compmus2025 |>
   geom_point() +
   geom_rug(linewidth = 0.1) +
   scale_x_continuous(
-    limits = c(0, 1),
-    breaks = c(0, 0.25, 0.5, 0.75, 1),
+    limits = c(0, 1.25),
+    breaks = c(0, 0.25, 0.5, 0.75, 1, 1.25),
     minor_breaks = NULL
   ) +
   scale_y_continuous(
-    limits = c(3, 7),
-    breaks = c(3, 4, 5, 6, 7),
+    limits = c(3, 8),
+    breaks = c(3, 4, 5, 6, 8),
     minor_breaks = NULL
   ) +
   scale_colour_viridis_c() +
@@ -222,14 +206,13 @@ ggplotly(p, tooltip = "text")
 
 ### Findings:
 
-<p>
-With Chart III, I intend to illustrate the relations between these factors: approachability, arousal, valence, and engagingness. According to Chart III, it is clear that with the increase in approachability, there does not occurs a similar change in arousal, valence, as well as engagingness, vice versa.  
-</p>
+<p>With Chart III, I intend to illustrate the relations between these factors: approachability, arousal, valence, and engagingness. According to Chart III, it is clear that with the increase in approachability, there does not occurs a similar change in arousal, valence, as well as engagingness, vice versa.</p>
 
 <p>
-Chart III indicates a weak relation between approachability and the other three features. More importantly, this means that whether or not a piece of music is exciting has very little to do with its approachability. 
 
---------------------------------------------------------------------------------
+Chart III indicates a weak relation between approachability and the other three features. More importantly, this means that whether or not a piece of music is exciting has very little to do with its approachability.
+
+------------------------------------------------------------------------
 
 ## Class Corpus Chart IV
 
@@ -255,13 +238,13 @@ p <- compmus2025 |>
   geom_point() +
   geom_rug(linewidth = 0.1) +
   scale_x_continuous(
-    limits = c(0, 1),
-    breaks = c(0, 0.25, 0.5, 0.75, 1),
+    limits = c(0, 1.25),
+    breaks = c(0, 0.25, 0.5, 0.75, 1, 1.25),
     minor_breaks = NULL
   ) +
   scale_y_continuous(
-    limits = c(3, 7),
-    breaks = c(3, 4, 5, 6, 7),
+    limits = c(3, 8),
+    breaks = c(3, 4, 5, 6, 8),
     minor_breaks = NULL
   ) +
   scale_colour_viridis_c() +
@@ -280,18 +263,17 @@ ggplotly(p, tooltip = "text") # Convert to interactive plot with tooltips
 ```
 
 ### Findings:
-<p>
-With Chart IV, I intend to illustrate the relations between these factors: instrumentalness, arousal, valence, and danceability. According to Chart IV, it is clear that with the increase in instrumentalness, there occurs a decrease in arousal, valence, as well as danceability, vice versa. 
-</p>
 
----------------------------------------------------------------------------------
+<p>With Chart IV, I intend to illustrate the relations between these factors: instrumentalness, arousal, valence, and danceability. According to Chart IV, it is clear that with the increase in instrumentalness, there occurs a decrease in arousal, valence, as well as danceability, vice versa.</p>
 
+------------------------------------------------------------------------
 
 # Part III: Danceability and Engagingness
 
 ## Class Corpus Chart V
 
 ### Class Corpus Chart V Danceability-Arousal
+
 ```{r}
 compmus2025 <- read_csv("compmus2025.csv")
 
@@ -312,13 +294,13 @@ p <- compmus2025 |>
   geom_point() +
   geom_rug(linewidth = 0.1) +
   scale_x_continuous(
-    limits = c(0, 1),
-    breaks = c(0, 0.25, 0.5, 0.75, 1),
+    limits = c(0, 1.25),
+    breaks = c(0, 0.25, 0.5, 0.75, 1, 1.25),
     minor_breaks = NULL
   ) +
   scale_y_continuous(
-    limits = c(3, 7),
-    breaks = c(3, 4, 5, 6, 7),
+    limits = c(3, 8),
+    breaks = c(3, 4, 5, 6, 8),
     minor_breaks = NULL
   ) +
   scale_colour_viridis_c() +
@@ -338,14 +320,14 @@ ggplotly(p, tooltip = "text") # Convert to interactive plot with tooltips
 
 ### Findings:
 
-With Chart V, I intend to illustrate the relations between these factors: danceability, arousal, engagingness, and valence. According to Chart V, it is clear that with the increase in danceability, there occurs an increase in arousal, valence, as well as engagingness, vice versa. 
+With Chart V, I intend to illustrate the relations between these factors: danceability, arousal, engagingness, and valence. According to Chart V, it is clear that with the increase in danceability, there occurs an increase in arousal, valence, as well as engagingness, vice versa.
 
----------------------------------------------------------------------------------
-
+------------------------------------------------------------------------
 
 ## Class Corpus Chart VI
 
 ### Class Corpus Chart VI Engagingness-Arousal
+
 ```{r}
 compmus2025 <- read_csv("compmus2025.csv")
 
@@ -362,13 +344,13 @@ p <- compmus2025 |>
   geom_point() +
   geom_rug(linewidth = 0.1) +
   scale_x_continuous(
-    limits = c(0, 1.2),
-    breaks = c(0, 0.3, 0.6, 0.9 , 1.2),
+    limits = c(0, 1.25),
+    breaks = c(0, 0.25, 0.5, 0.75, 1, 1.25),
     minor_breaks = NULL
   ) +
   scale_y_continuous(
-    limits = c(3, 7),
-    breaks = c(3, 4, 5, 6, 7),
+    limits = c(3, 8),
+    breaks = c(3, 4, 5, 6, 8),
     minor_breaks = NULL
   ) +
   scale_colour_viridis_c() +
@@ -386,17 +368,18 @@ p <- compmus2025 |>
 ggplotly(p, tooltip = "text")
 ```
 
-### Findings: 
+### Findings:
 
-With Chart VI, I intend to illustrate the relations between these factors: engagingness, arousal, valence, and danceability. According to Chart VI, it is clear that with the increase in engagingness, there occurs an increase in arousal, valence, as well as danceability, vice versa. 
+With Chart VI, I intend to illustrate the relations between these factors: engagingness, arousal, valence, and danceability. According to Chart VI, it is clear that with the increase in engagingness, there occurs an increase in arousal, valence, as well as danceability, vice versa.
 
---------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
 # Chart VII and Conclusion on Part I, II, and III
 
 ## Class Corpus Chart VII
 
 ### Class Corpus Chart VII Valence-Arousal
+
 ```{r}
 compmus2025 <- read_csv("compmus2025.csv")
 
@@ -413,13 +396,13 @@ p <- compmus2025 |>
   geom_point() +
   geom_rug(linewidth = 0.1) +
   scale_x_continuous(
-    limits = c(3, 7),
-    breaks = c(3, 4, 5, 6, 7),
+    limits = c(3, 8),
+    breaks = c(3, 4, 5, 6, 8),
     minor_breaks = NULL
   ) +
   scale_y_continuous(
-    limits = c(3, 7),
-    breaks = c(3, 4, 5, 6, 7),
+    limits = c(3, 8),
+    breaks = c(3, 4, 5, 6, 8),
     minor_breaks = NULL
   ) +
   scale_colour_viridis_c() +
@@ -437,236 +420,88 @@ p <- compmus2025 |>
 ggplotly(p, tooltip = "text")
 ```
 
-### Findings: 
+### Findings:
 
-With Chart VII, I intend to illustrate the relations between these factors: valence, arousal, engagingness, and danceability. According to Chart VII, it is clear that with the increase in valence, there occurs an increase in arousal, engagingness, as well as danceability, vice versa. 
+With Chart VII, I intend to illustrate the relations between these factors: valence, arousal, engagingness, and danceability. According to Chart VII, it is clear that with the increase in valence, there occurs an increase in arousal, engagingness, as well as danceability, vice versa.
 
---------------------------------------------------------------------------------
-
+------------------------------------------------------------------------
 
 ## conclusion
 
-### Conclusion: 
+### Conclusion:
 
-<p>
-In conclusion, based on Chart I-VII, it is clear that of all factors, engagingness, danceability, instrumentalness, and valence seem to have strong relations with the arousal of a piece of music, while the tempo of the music and its approachability does not have, generally saying, a positive or negative impact on the song's arousal. 
-</p>
+<p>In conclusion, based on Chart I-VII, it is clear that of all factors, engagingness, danceability, instrumentalness, and valence seem to have strong relations with the arousal of a piece of music, while the tempo of the music and its approachability does not have, generally saying, a positive or negative impact on the song's arousal.</p>
 
-<p>
-Therefore, what makes a song exciting? According to all the songs selected into compmus2025, we can conclude that if a piece of music sounds happier, catchier, and easier to dance to, it might sound more stimulating and exciting than other songs. Additionally, the amount of instrumental content in a piece of song may affect its arousal negatively, as it turns out with the increase of instrumentalness there comes a decrease in the arousal of the music.
-</p>
+<p>Therefore, what makes a song exciting? According to all the songs selected into compmus2025, we can conclude that if a piece of music sounds happier, catchier, and easier to dance to, it might sound more stimulating and exciting than other songs. Additionally, the amount of instrumental content in a piece of song may affect its arousal negatively, as it turns out with the increase of instrumentalness there comes a decrease in the arousal of the music.</p>
 
----------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
-# Valence and Arousal 
+# Further Findings
 
-## Introduction 
+### Overview of Futher Findings 
 
-### Introduction: 
+# Tempo Comparison
 
-<p>
-As illustrated previously, valence has a strong connection with arousal. How does this work? What does it mean <i>musically</i> that one song has more valence than others? 
-</p>
+### Top10
 
-<p>
-In this section, I will look into songs that have a higher valence than others and these songs musical features such as which chord they use which key they are in, their structre and variation, in order to better understand how valence contributes to a song's arousal. 
-</p>
+<html>
+<head>
+<title>Top10 Cyclic Tempograms</title>
+<style>
+.scrollable-container {
+  width: 100%; /* Adjust as needed */
+  overflow-x: auto;
+  white-space: nowrap;
+}
 
-<p>
+.scrollable-container img {
+  display: inline-block;
+  margin-right: 20px; /* Optional: adds space between images */
+}
+</style>
+</head>
+<body>
+
+<div class="scrollable-container">
+  <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/Cyclic Tempogram/CT_top_10/CT_lucas_w_1.png" alt="lucas-w-1">
+  <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/Cyclic Tempogram/CT_top_10/CT_berend_b_2.png" alt="berend-b-2">
+  <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/Cyclic Tempogram/CT_top_10/CT_reinout_w_2.png" alt="reinout-w-2">
+  <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/Cyclic Tempogram/CT_top_10/CT_popke_s_2.png" alt="popke-s-2">
+  <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/Cyclic Tempogram/CT_top_10/CT_elze_s_1.png" alt="elze-s-1">
+  </div>
+
+</body>
+</html>
 
 
------------------------------------------------------------------------------------
 
-## Analysis
 
-### Analysis: 
+### Bottom10
+<html>
+<head>
+<title>Top10 Cyclic Tempograms</title>
+<style>
+.scrollable-container {
+  width: 100%; /* Adjust as needed */
+  overflow-x: auto;
+  white-space: nowrap;
+}
 
-<p>
+.scrollable-container img {
+  display: inline-block;
+  margin-right: 20px; /* Optional: adds space between images */
+}
+</style>
+</head>
+<body>
 
-</p>
+<div class="scrollable-container">
+  <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/Cyclic Tempogram/CT_top_10/CT_lucas_w_1.png" alt="lucas-w-1">
+  <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/Cyclic Tempogram/CT_top_10/CT_berend_b_2.png" alt="berend-b-2">
+  <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/Cyclic Tempogram/CT_top_10/CT_reinout_w_2.png" alt="reinout-w-2">
+  <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/Cyclic Tempogram/CT_top_10/CT_popke_s_2.png" alt="popke-s-2">
+  <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/Cyclic Tempogram/CT_top_10/CT_elze_s_1.png" alt="elze-s-1">
+  </div>
 
-<img src="https://media.giphy.com/media/2DtfA7nYrbNnIabEyK/giphy.gif?cid=790b76113xhraiivwyj25sxd5c8pe1zqxymedxyfkjzzftcm&ep=v1_gifs_search&rid=giphy.gif&ct=g" width="100" height="100">
-
-## Example I: reinout-w-2
-
-### Example I (a): reinout-w-2 Chromagram
-
-```{r}
-"features/reinout-w-2.json" |>                           # Change the track
-  compmus_chroma(norm = "identity") |>                 # Change the norm
-  ggplot(aes(x = time, y = pc, fill = value)) + 
-  geom_raster() +
-  scale_y_continuous(
-    breaks = 0:11,
-    minor_breaks = NULL,
-    labels = c(
-                "C", "C#|Db", "D", "D#|Eb",
-                "E", "F", "F#|Gb", "G",
-                "G#|Ab", "A", "A#|Bb", "B"
-              )
-  ) +
-  scale_fill_viridis_c(guide = "none") +               # Change the colours?
-  labs(x = "Time (s)", y = NULL, fill = NULL) +
-  theme_classic()                                      # Change the theme?
-```
-
---------------------------------------------------------------------------------
-
-### Example I (b): reinout-w-2 Chordogram
-```{r}
-"features/reinout-w-2.json" |> 
-  compmus_chroma(norm = "identity") |> 
-  compmus_match_pitch_templates(
-    chord_templates,         # Change to chord_templates if desired
-    norm = "identity",       # Try different norms (and match it with what you used in `compmus_chroma`)
-    distance = "cosine"   # Try different distance metrics
-  ) |>
-  ggplot(aes(x = time, y = name, fill = d)) + 
-  geom_raster() +
-  scale_fill_viridis_c(guide = "none") +               # Change the colours?
-  labs(x = "Time (s)", y = "Template", fill = NULL) +
-  theme_classic()                                      # Change the theme?
-```
-
---------------------------------------------------------------------------------
-
-## Example II lo-l-1
-
-### Example II (a): lo-l-1 Chromagram
-```{r}
-"features/lo-l-1.json" |>                           # Change the track
-  compmus_chroma(norm = "identity") |>                 # Change the norm
-  ggplot(aes(x = time, y = pc, fill = value)) + 
-  geom_raster() +
-  scale_y_continuous(
-    breaks = 0:11,
-    minor_breaks = NULL,
-    labels = c(
-                "C", "C#|Db", "D", "D#|Eb",
-                "E", "F", "F#|Gb", "G",
-                "G#|Ab", "A", "A#|Bb", "B"
-              )
-  ) +
-  scale_fill_viridis_c(guide = "none") +               # Change the colours?
-  labs(x = "Time (s)", y = NULL, fill = NULL) +
-  theme_classic()                                      # Change the theme?
-```
-
---------------------------------------------------------------------------------
-
-### Example II (b): lo-l-1 Chrodogram
-```{r}
-"features/lo-l-1.json" |> 
-  compmus_chroma(norm = "identity") |> 
-  compmus_match_pitch_templates(
-    chord_templates,         # Change to chord_templates if desired
-    norm = "identity",       # Try different norms (and match it with what you used in `compmus_chroma`)
-    distance = "cosine"   # Try different distance metrics
-  ) |>
-  ggplot(aes(x = time, y = name, fill = d)) + 
-  geom_raster() +
-  scale_fill_viridis_c(guide = "none") +               # Change the colours?
-  labs(x = "Time (s)", y = "Template", fill = NULL) +
-  theme_classic()                                      # Change the theme?
-```
-
---------------------------------------------------------------------------------
-
-# Danceability and Arousal 
-
-## Introduction
-
-### Introduction: 
-
-<img src="https://media.giphy.com/media/2DtfA7nYrbNnIabEyK/giphy.gif?cid=790b76113xhraiivwyj25sxd5c8pe1zqxymedxyfkjzzftcm&ep=v1_gifs_search&rid=giphy.gif&ct=g" width="100" height="100">
-
-## Analysis
-
-### Analysis:
-
-<img src="https://media.giphy.com/media/2DtfA7nYrbNnIabEyK/giphy.gif?cid=790b76113xhraiivwyj25sxd5c8pe1zqxymedxyfkjzzftcm&ep=v1_gifs_search&rid=giphy.gif&ct=g" width="100" height="100">
-
----------------------------------------------------------------------------------
-
-## Example I popke-s-2
-
-### Example I (a) popke-s-2 Chromagram
-```{r}
-"features/popke-s-2.json" |>                           # Change the track
-  compmus_chroma(norm = "identity") |>                 # Change the norm
-  ggplot(aes(x = time, y = pc, fill = value)) + 
-  geom_raster() +
-  scale_y_continuous(
-    breaks = 0:11,
-    minor_breaks = NULL,
-    labels = c(
-                "C", "C#|Db", "D", "D#|Eb",
-                "E", "F", "F#|Gb", "G",
-                "G#|Ab", "A", "A#|Bb", "B"
-              )
-  ) +
-  scale_fill_viridis_c(guide = "none") +               # Change the colours?
-  labs(x = "Time (s)", y = NULL, fill = NULL) +
-  theme_classic()                                      # Change the theme?
-```
-
----------------------------------------------------------------------------------
-
-### Example I (b) popke-s-2 Chroma-based Self-Similarity
-```{r}
-"features/popke-s-2.json" |>                           # Change the track
-  compmus_chroma(norm = "identity") |>                 # Change the norm
-  compmus_self_similarity(
-    feature = pc,
-    distance = "euclidean"                             # Change the distance
-  ) |>   
-  ggplot(aes(x = xtime, y = ytime, fill = d)) + 
-  geom_raster() +
-  scale_fill_viridis_c(guide = "none") +               # Change the colours?
-  labs(x = "Time (s)", y = NULL, fill = NULL) +
-  theme_classic()                                      # Change the theme?
-```
-
---------------------------------------------------------------------------------
-
-## Example II erik-l-1
-
-### Example II (a) erik-l-1 Chromagram 
-```{r}
-"features/erik-l-1.json" |>                           # Change the track
-  compmus_chroma(norm = "identity") |>                 # Change the norm
-  ggplot(aes(x = time, y = pc, fill = value)) + 
-  geom_raster() +
-  scale_y_continuous(
-    breaks = 0:11,
-    minor_breaks = NULL,
-    labels = c(
-                "C", "C#|Db", "D", "D#|Eb",
-                "E", "F", "F#|Gb", "G",
-                "G#|Ab", "A", "A#|Bb", "B"
-              )
-  ) +
-  scale_fill_viridis_c(guide = "none") +               # Change the colours?
-  labs(x = "Time (s)", y = NULL, fill = NULL) +
-  theme_classic()                                      # Change the theme?
-```
-
----------------------------------------------------------------------------------
-
-### Example II (b) erik-l-1 Chroma-based Self-Similarity
-```{r}
-"features/erik-l-1.json" |>                           # Change the track
-  compmus_chroma(norm = "identity") |>                 # Change the norm
-  compmus_self_similarity(
-    feature = pc,
-    distance = "euclidean"                             # Change the distance
-  ) |>   
-  ggplot(aes(x = xtime, y = ytime, fill = d)) + 
-  geom_raster() +
-  scale_fill_viridis_c(guide = "none") +               # Change the colours?
-  labs(x = "Time (s)", y = NULL, fill = NULL) +
-  theme_classic()                                      # Change the theme?
-```
-
---------------------------------------------------------------------------------
-
+</body>
+</html>
