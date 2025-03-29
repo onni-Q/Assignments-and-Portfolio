@@ -9,28 +9,11 @@ output:
 library(ggplot2)
 library(dplyr) # Load dplyr for the pipe operator
 library(tidyverse)
+library(plotly)
 source("compmus.R")
+compmus2025 <- read_csv("compmus2025.csv")
+
 ```
-
-------------------------------------------------------------------------
-
-# Introduction
-
-## About Me & My Research
-
-### Background
-
-<p>What does an exciting piece of music sound like? What music moments relate the closest to its arousal? Could it be its tempo, valence, engagingness, danceability, instrumentalness, approachability, or the combination of some of them?</p>
-
-<p>In this portfolio, I intend to discover the factors that affect the arousal of a piece of music and how arousal is related to these factors.</p>
-
-------------------------------------------------------------------------
-
-## Corpus Description
-
-### Data Source
-
-compmus2025.csv
 
 ```{r}
 #      C     C#    D     Eb    E     F     F#    G     Ab    A     Bb    B
@@ -116,72 +99,96 @@ key_templates <-
   )
 ```
 
-------------------------------------------------------------------------
 
-# Part I: Tempo and Valence
+# Background: about Me and My Tracks
+
+## About Me
+
+### My Background 
+
+<p>
+my research interest, interest in music, favorite blues musicians, why blues music, why ai blues music, why i wnat to find out 
+</p>
+
+## About My Tracks
+
+### My Tracks
+
+<p>
+onni-q-1.mp3 and onni-q-2.mp3
+</p>
+
+<p>
+Blues rock licks and acoustic delta blues licks. the differences in instrumentalness, how ai captures the differences between blues rock and delta blues. 
+</p>
+
+<p>
+suno.ai for music generation. 
+</p>
+
+<p>
+prompt for onni-q-1.mp3: "play me some blues rock licks, electric guitar, blues solo, any key, any tempo, no percussion, no human vocal, melancholy." 
+</p>
+
+<p>
+prompt for onni-q-2.mp3: "play me some acoustic delta blues, 65 bpm, melancholy, no percussion, no drum, just an acoustic guitar with heavy steel strings played with a glass glide."
+</p>
+
+### Have A Listen! 
+
+#### Track No.1 Blues Rock onni-q-1
+<audio controls title="onni-q-1">
+<source src="/Users/olenonniboi/Desktop/Computational Musicology/weekly assignments and portfolio/the thing/compmus-corpus-2025/onni-q-1.mp3" type="audio/mpeg">
+</audio>
+
+#### Track No.2 Delta Blues onni-q-2
+<audio controls title="onni-q-2">
+<source src="/Users/olenonniboi/Desktop/Computational Musicology/weekly assignments and portfolio/the thing/compmus-corpus-2025/onni-q-2.mp3" type="audio/mpeg">
+</audio>
+
+
+
+
+# Part I: Track-Level Features 
 
 ## Class Corpus Chart I Tempo-Arousal
 
 ### Class Corpus Chart I Tempo-Arousal
 
-```{r}
-compmus2025 <- read_csv("compmus2025.csv")
 
-compmus2025 |> ggplot(aes(x = tempo, y = arousal)) + geom_jitter() + geom_smooth()
-```
-
-### Findings:
-
-<p>With Chart I, I intend to illustrate the relation between the tempo of a song and its arousal.</p>
-
-<p>Chart I indicates that the increase of tempo does not necessarily contribute to the increase of a song's arousal. Instead, it seems that most songs that sound more exciting and stimulating than others tend to have a tempo close to 100bpm.</p>
-
-<p>This means that there is a strong relation between valence and arousal.</p>
-
-------------------------------------------------------------------------
-
-## Class Corpus Chart II Valence-Arousal
-
-### Class Corpus Chart II Valence-Arousal
 
 ```{r}
-compmus2025|> ggplot(aes(x = valence, y = arousal)) + geom_jitter() + geom_smooth()
-```
 
-### Findings:
+specific_songs <- compmus2025 |> filter(filename %in% c("onni-q-1", "onni-q-2"))
+other_songs <- compmus2025 |> filter(!filename %in% c("onni-q-1", "onni-q-2"))
 
-<p>With Chart II, I intend to illustrate the relation between the valence of a song and its arousal.</p>
-
-<p>Chart II indicates that the increase of valence does clearly contribute to the increase of a song's arousal. Indeed, it seems that the more positive and pleasant a piece of music sound, the more exciting and stimulating it would be.</p>
-
-------------------------------------------------------------------------
-
-# Part II: Approachability and Instrumentalness
-
-## Class Corpus Chart III
-
-### Class Corpus Chart III Approachability-Arousal
-
-```{r}
-compmus2025 <- read_csv("compmus2025.csv")
-
-library(plotly)
-
-p <- compmus2025 |>
-  ggplot(
+p <- ggplot() +
+  geom_point(
+    data = other_songs,
     aes(
-      x = approachability,
+      x = tempo,
       y = arousal,
-      size = danceability,
-      colour = valence,
-      text = filename  # Add tooltip text
+      size = arousal,
+      colour = arousal,
+      text = filename
     )
   ) +
-  geom_point() +
-  geom_rug(linewidth = 0.1) +
+  geom_point( # Add a separate layer for the specific songs
+    data = specific_songs,
+    aes(
+      x = tempo,
+      y = arousal,
+      colour = arousal,
+      text = filename
+    ),
+    shape = 16, # Use a different shape (e.g., triangle)
+    stroke = 1.5, # Add a border
+    colour = "red" # Use a distinct color
+  ) +
+  geom_rug(data = other_songs, linewidth = 0.1) +
   scale_x_continuous(
-    limits = c(0, 1.25),
-    breaks = c(0, 0.25, 0.5, 0.75, 1, 1.25),
+    limits = c(50, 150),
+    breaks = c(50, 75, 100, 125, 150),
     minor_breaks = NULL
   ) +
   scale_y_continuous(
@@ -196,312 +203,322 @@ p <- compmus2025 |>
   ) +
   theme_light() +
   labs(
-    x = "Approachability",
+    x = "Tempo",
     y = "Arousal",
+    colour = "Arousal"
+  )
+
+ggplotly(p, tooltip = "text")
+
+```
+
+
+  
+### Findings:
+
+<p>
+With Chart I, I intend to illustrate the relation between the tempo of a song and its arousal.
+</p>
+
+<p>
+Chart I indicates that the increase of tempo does not necessarily contribute to the increase of a song's arousal. Instead, it seems that most songs that sound more exciting and stimulating than others tend to have a tempo close to 100bpm.
+</p>
+
+<p>This means that there is a strong relation between valence and arousal.</p>
+
+------------------------------------------------------------------------
+
+## Class Corpus Chart II Tempo-Valence
+
+### Class Corpus Chart II Tempo-Valence
+
+```{r}
+
+specific_songs <- compmus2025 |> filter(filename %in% c("onni-q-1", "onni-q-2"))
+other_songs <- compmus2025 |> filter(!filename %in% c("onni-q-1", "onni-q-2"))
+
+p <- ggplot() +
+  geom_point(
+    data = other_songs,
+    aes(
+      x = tempo,
+      y = valence,
+      size = valence,
+      colour = valence,
+      text = filename
+    )
+  ) +
+  geom_point( # Add a separate layer for the specific songs
+    data = specific_songs,
+    aes(
+      x = tempo,
+      y = valence,
+      colour = valence,
+      text = filename
+    ),
+    shape = 16, # Use a different shape (e.g., triangle)
+    stroke = 1.5, # Add a border
+    colour = "red" # Use a distinct color
+  ) +
+  geom_rug(data = other_songs, linewidth = 0.1) +
+  scale_x_continuous(
+    limits = c(50, 150),
+    breaks = c(50, 75, 100, 125, 150),
+    minor_breaks = NULL
+  ) +
+  scale_y_continuous(
+    limits = c(3, 8),
+    breaks = c(3, 4, 5, 6, 8),
+    minor_breaks = NULL
+  ) +
+  scale_colour_viridis_c() +
+  scale_size_continuous(
+    trans = "exp",
+    guide = "none"
+  ) +
+  theme_light() +
+  labs(
+    x = "Tempo",
+    y = "Valence",
     colour = "Valence"
   )
 
 ggplotly(p, tooltip = "text")
+
 ```
+
+
+### Findings:
+
+<p>
+With Chart II, I intend to illustrate the relation between the valence of a song and its arousal.
+</p>
+
+<p>
+Chart II indicates that the increase of valence does clearly contribute to the increase of a song's arousal. Indeed, it seems that the more positive and pleasant a piece of music sound, the more exciting and stimulating it would be.
+</p>
+
+
+
+# Part II: Chroma-Features
+
+## graphs
+
+### onni-q-1
+<div style="display: flex; overflow-x: auto; width: 100%;">
+
+  <div style="flex: 0 0 auto; margin-right: 10px;">
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/chromagrams/onni-q-1-chroma.png" style="max-width: 450px; height: auto;">
+  </div>
+  
+  <div style="flex: 0 0 auto; margin-right: 10px;">
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/cepstrogram/onni-q-1-cep.png" style="max-width: 450px; height: auto;">
+  </div>
+  
+  <div style="flex: 0 0 auto; margin-right: 10px;">
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/cbss/onni-q-1-cbss.png" style="max-width: 450px; height: auto;">
+  </div>
+  
+  <div style="flex: 0 0 auto; margin-right: 10px;">
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/Key/onni-q-1-key.png" style="max-width: 450px; height: auto;">
+  </div>
+
+  <div style="flex: 0 0 auto;">
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/Chord/onni-q-1-chord.png" style="max-width: 450px; height: auto;">
+  </div>
+  
+</div>
 
 ### Findings:
 
 <p>With Chart III, I intend to illustrate the relations between these factors: approachability, arousal, valence, and engagingness. According to Chart III, it is clear that with the increase in approachability, there does not occurs a similar change in arousal, valence, as well as engagingness, vice versa.</p>
 
 <p>
-
 Chart III indicates a weak relation between approachability and the other three features. More importantly, this means that whether or not a piece of music is exciting has very little to do with its approachability.
+</p>
 
-------------------------------------------------------------------------
+## graphs
 
-## Class Corpus Chart IV
+### onni-q-2
 
-### Class Corpus Chart IV Instrumentalness-Arousal
+<div style="display: flex; overflow-x: auto; width: 100%;">
 
-```{r}
-compmus2025 <- read_csv("compmus2025.csv")
+  <div style="flex: 0 0 auto; margin-right: 10px;">
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/chromagrams/onni-q-2-chroma.png" style="max-width: 450px; height: auto;">
+  </div>
+  
+  <div style="flex: 0 0 auto; margin-right: 10px;">
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/cepstrogram/onni-q-2-cep.png" style="max-width: 450px; height: auto;">
+  </div>
+  
+  <div style="flex: 0 0 auto; margin-right: 10px;">
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/cbss/onni-q-2-cbss.png" style="max-width: 450px; height: auto;">
+  </div>
+  
+<div style="flex: 0 0 auto; margin-right: 10px;">
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/Key/onni-q-2-key.png" style="max-width: 450px; height: auto;">
+  </div>
 
-
-# Create an interactive plot with song titles as tooltips
-library(plotly)
-
-p <- compmus2025 |>
-  ggplot(
-    aes(
-      x = instrumentalness,
-      y = arousal,
-      size = danceability,
-      colour = valence,
-      text = filename  # Add tooltip text
-    )
-  ) +
-  geom_point() +
-  geom_rug(linewidth = 0.1) +
-  scale_x_continuous(
-    limits = c(0, 1.25),
-    breaks = c(0, 0.25, 0.5, 0.75, 1, 1.25),
-    minor_breaks = NULL
-  ) +
-  scale_y_continuous(
-    limits = c(3, 8),
-    breaks = c(3, 4, 5, 6, 8),
-    minor_breaks = NULL
-  ) +
-  scale_colour_viridis_c() +
-  scale_size_continuous(
-    trans = "exp",
-    guide = "none"
-  ) +
-  theme_light() +
-  labs(
-    x = "Instrumentalness",
-    y = "Arousal",
-    colour = "Valence"
-  )
-
-ggplotly(p, tooltip = "text") # Convert to interactive plot with tooltips
-```
+  <div style="flex: 0 0 auto;">
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/Chord/onni-q-2-chord.png" style="max-width: 450px; height: auto;">
+  </div>
+</div>
 
 ### Findings:
 
 <p>With Chart IV, I intend to illustrate the relations between these factors: instrumentalness, arousal, valence, and danceability. According to Chart IV, it is clear that with the increase in instrumentalness, there occurs a decrease in arousal, valence, as well as danceability, vice versa.</p>
 
-------------------------------------------------------------------------
-
-# Part III: Danceability and Engagingness
-
-## Class Corpus Chart V
-
-### Class Corpus Chart V Danceability-Arousal
-
-```{r}
-compmus2025 <- read_csv("compmus2025.csv")
 
 
-# Create an interactive plot with song titles as tooltips
-library(plotly)
+# PArt III: Timbre Features 
 
-p <- compmus2025 |>
-  ggplot(
-    aes(
-      x = danceability,
-      y = arousal,
-      size = engagingness,
-      colour = valence,
-      text = filename  # Add tooltip text
-    )
-  ) +
-  geom_point() +
-  geom_rug(linewidth = 0.1) +
-  scale_x_continuous(
-    limits = c(0, 1.25),
-    breaks = c(0, 0.25, 0.5, 0.75, 1, 1.25),
-    minor_breaks = NULL
-  ) +
-  scale_y_continuous(
-    limits = c(3, 8),
-    breaks = c(3, 4, 5, 6, 8),
-    minor_breaks = NULL
-  ) +
-  scale_colour_viridis_c() +
-  scale_size_continuous(
-    trans = "exp",
-    guide = "none"
-  ) +
-  theme_light() +
-  labs(
-    x = "Danceability",
-    y = "Arousal",
-    colour = "Valence"
-  )
+## onni-q-1 Timbre-Based Self-Similarity 
 
-ggplotly(p, tooltip = "text") # Convert to interactive plot with tooltips
-```
+### onni-q-1 Timbre-Based Self-Similarity 
 
-### Findings:
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/tbss/onni-q-1-tbss.png">
 
-With Chart V, I intend to illustrate the relations between these factors: danceability, arousal, engagingness, and valence. According to Chart V, it is clear that with the increase in danceability, there occurs an increase in arousal, valence, as well as engagingness, vice versa.
-
-------------------------------------------------------------------------
-
-## Class Corpus Chart VI
-
-### Class Corpus Chart VI Engagingness-Arousal
-
-```{r}
-compmus2025 <- read_csv("compmus2025.csv")
-
-p <- compmus2025 |>
-  ggplot(
-    aes(
-      x = engagingness,
-      y = arousal,
-      size = danceability,
-      colour = valence,
-      text = filename  # Add tooltip text
-    )
-  ) +
-  geom_point() +
-  geom_rug(linewidth = 0.1) +
-  scale_x_continuous(
-    limits = c(0, 1.25),
-    breaks = c(0, 0.25, 0.5, 0.75, 1, 1.25),
-    minor_breaks = NULL
-  ) +
-  scale_y_continuous(
-    limits = c(3, 8),
-    breaks = c(3, 4, 5, 6, 8),
-    minor_breaks = NULL
-  ) +
-  scale_colour_viridis_c() +
-  scale_size_continuous(
-    trans = "exp",
-    guide = "none"
-  ) +
-  theme_light() +
-  labs(
-    x = "Engagingness",
-    y = "Arousal",
-    colour = "Valence"
-  )
-
-ggplotly(p, tooltip = "text")
-```
-
-### Findings:
-
-With Chart VI, I intend to illustrate the relations between these factors: engagingness, arousal, valence, and danceability. According to Chart VI, it is clear that with the increase in engagingness, there occurs an increase in arousal, valence, as well as danceability, vice versa.
-
-------------------------------------------------------------------------
-
-# Chart VII and Conclusion on Part I, II, and III
-
-## Class Corpus Chart VII
-
-### Class Corpus Chart VII Valence-Arousal
-
-```{r}
-compmus2025 <- read_csv("compmus2025.csv")
-
-p <- compmus2025 |>
-  ggplot(
-    aes(
-      x = valence,
-      y = arousal,
-      size = engagingness,
-      colour = danceability,
-      text = filename  # Add tooltip text
-    )
-  ) +
-  geom_point() +
-  geom_rug(linewidth = 0.1) +
-  scale_x_continuous(
-    limits = c(3, 8),
-    breaks = c(3, 4, 5, 6, 8),
-    minor_breaks = NULL
-  ) +
-  scale_y_continuous(
-    limits = c(3, 8),
-    breaks = c(3, 4, 5, 6, 8),
-    minor_breaks = NULL
-  ) +
-  scale_colour_viridis_c() +
-  scale_size_continuous(
-    trans = "exp",
-    guide = "none"
-  ) +
-  theme_light() +
-  labs(
-    x = "Valence",
-    y = "Arousal",
-    colour = "Danceability"
-  )
-
-ggplotly(p, tooltip = "text")
-```
 
 ### Findings:
 
 With Chart VII, I intend to illustrate the relations between these factors: valence, arousal, engagingness, and danceability. According to Chart VII, it is clear that with the increase in valence, there occurs an increase in arousal, engagingness, as well as danceability, vice versa.
 
-------------------------------------------------------------------------
+## onni-q-2 Timbre-Based Self-Similarity 
 
-## conclusion
+### onni-q-2 Timbre-Based Self-Similarity 
 
-### Conclusion:
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/tbss/onni-q-2-tbss.png">
 
-<p>In conclusion, based on Chart I-VII, it is clear that of all factors, engagingness, danceability, instrumentalness, and valence seem to have strong relations with the arousal of a piece of music, while the tempo of the music and its approachability does not have, generally saying, a positive or negative impact on the song's arousal.</p>
 
-<p>Therefore, what makes a song exciting? According to all the songs selected into compmus2025, we can conclude that if a piece of music sounds happier, catchier, and easier to dance to, it might sound more stimulating and exciting than other songs. Additionally, the amount of instrumental content in a piece of song may affect its arousal negatively, as it turns out with the increase of instrumentalness there comes a decrease in the arousal of the music.</p>
+### Findings:
 
-------------------------------------------------------------------------
+With Chart VII, I intend to illustrate the relations between these factors: valence, arousal, engagingness, and danceability. According to Chart VII, it is clear that with the increase in valence, there occurs an increase in arousal, engagingness, as well as danceability, vice versa.
 
-# Further Findings
 
-### Overview of Futher Findings 
+# Part IV: Temporal Features 
 
-# Tempo Comparison
+## graphs
 
-### Top10
+### onni-q-1
+<div style="display: flex; overflow-x: auto; width: 100%;">
+  <div style="flex: 0 0 auto; margin-right: 10px;">
 
-<html>
-<head>
-<title>Top10 Cyclic Tempograms</title>
-<style>
-.scrollable-container {
-  width: 100%; /* Adjust as needed */
-  overflow-x: auto;
-  white-space: nowrap;
-}
-
-.scrollable-container img {
-  display: inline-block;
-  margin-right: 20px; /* Optional: adds space between images */
-}
-</style>
-</head>
-<body>
-
-<div class="scrollable-container">
-  <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/Cyclic Tempogram/CT_top_10/CT_lucas_w_1.png" alt="lucas-w-1">
-  <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/Cyclic Tempogram/CT_top_10/CT_berend_b_2.png" alt="berend-b-2">
-  <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/Cyclic Tempogram/CT_top_10/CT_reinout_w_2.png" alt="reinout-w-2">
-  <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/Cyclic Tempogram/CT_top_10/CT_popke_s_2.png" alt="popke-s-2">
-  <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/Cyclic Tempogram/CT_top_10/CT_elze_s_1.png" alt="elze-s-1">
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/EN/onni-q-1-en.png" style="max-width: 450px; height: auto;">
   </div>
+  <div style="flex: 0 0 auto; margin-right: 10px;">
 
-</body>
-</html>
-
-
-
-
-### Bottom10
-<html>
-<head>
-<title>Top10 Cyclic Tempograms</title>
-<style>
-.scrollable-container {
-  width: 100%; /* Adjust as needed */
-  overflow-x: auto;
-  white-space: nowrap;
-}
-
-.scrollable-container img {
-  display: inline-block;
-  margin-right: 20px; /* Optional: adds space between images */
-}
-</style>
-</head>
-<body>
-
-<div class="scrollable-container">
-  <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/Cyclic Tempogram/CT_top_10/CT_lucas_w_1.png" alt="lucas-w-1">
-  <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/Cyclic Tempogram/CT_top_10/CT_berend_b_2.png" alt="berend-b-2">
-  <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/Cyclic Tempogram/CT_top_10/CT_reinout_w_2.png" alt="reinout-w-2">
-  <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/Cyclic Tempogram/CT_top_10/CT_popke_s_2.png" alt="popke-s-2">
-  <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/Cyclic Tempogram/CT_top_10/CT_elze_s_1.png" alt="elze-s-1">
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/SN/onni-q-1-sn.png" style="max-width: 450px; height: auto;">
   </div>
+  <div style="flex: 0 0 auto;">
+  
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/Tempo/onni-q-1-tp.png" style="max-width: 450px; height: auto;">
+  </div>
+  <div style="flex: 0 0 auto;">
 
-</body>
-</html>
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/C-Tempo/onni-q-1-ctp.png" style="max-width: 450px; height: auto;">
+  </div>
+</div>
+
+### Findings:
+
+<p>With Chart III, I intend to illustrate the relations between these factors: approachability, arousal, valence, and engagingness. According to Chart III, it is clear that with the increase in approachability, there does not occurs a similar change in arousal, valence, as well as engagingness, vice versa.</p>
+
+<p>
+Chart III indicates a weak relation between approachability and the other three features. More importantly, this means that whether or not a piece of music is exciting has very little to do with its approachability.
+</p>
+
+## graphs
+
+### onni-q-2
+
+<div style="display: flex; overflow-x: auto; width: 100%;">
+  <div style="flex: 0 0 auto; margin-right: 10px;">
+
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/EN/onni-q-2-en.png" style="max-width: 450px; height: auto;">
+  </div>
+  <div style="flex: 0 0 auto; margin-right: 10px;">
+
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/SN/onni-q-2-sn.png" style="max-width: 450px; height: auto;">
+  </div>
+  <div style="flex: 0 0 auto;">
+  
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/Tempo/onni-q-2-tp.png" style="max-width: 450px; height: auto;">
+  </div>
+  <div style="flex: 0 0 auto;">
+
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/C-Tempo/onni-q-2-ctp.png" style="max-width: 450px; height: auto;">
+  </div>
+</div>
+
+### Findings:
+
+<p>With Chart IV, I intend to illustrate the relations between these factors: instrumentalness, arousal, valence, and danceability. According to Chart IV, it is clear that with the increase in instrumentalness, there occurs a decrease in arousal, valence, as well as danceability, vice versa.</p>
+
+
+# Part V: Hierarchical Clustering
+
+## Euc
+
+### Euclidean
+
+<div style="display: flex; overflow-x: auto; width: 100%;">
+  <div style="flex: 0 0 auto; margin-right: 10px;">
+
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/cluster/HC/un-highlighted/euc/single.png" style="max-width: 450px; height: auto;">
+  </div>
+  <div style="flex: 0 0 auto; margin-right: 10px;">
+
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/cluster/HC/un-highlighted/euc/average.png" style="max-width: 450px; height: auto;">
+  </div>
+  <div style="flex: 0 0 auto;">
+
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/cluster/HC/un-highlighted/euc/complete.png" style="max-width: 450px; height: auto;">
+  </div>
+</div>
+
+### Analysis 
+
+#### Expectations 
+
+<p> 
+</p>
+
+#### Results
+
+<p>
+</p>
+
+
+## Mht
+
+### Manhattan
+
+<div style="display: flex; overflow-x: auto; width: 100%;">
+  <div style="flex: 0 0 auto; margin-right: 10px;">
+
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/cluster/HC/un-highlighted/mht/single.png" style="max-width: 450px; height: auto;">
+  </div>
+  <div style="flex: 0 0 auto; margin-right: 10px;">
+
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/cluster/HC/un-highlighted/mht/ave.png" style="max-width: 450px; height: auto;">
+  </div>
+  <div style="flex: 0 0 auto;">
+
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/cluster/HC/un-highlighted/mht/complete.png" style="max-width: 450px; height: auto;">
+  </div>
+</div>
+
+### Analysis 
+
+#### Expectations 
+
+<p> 
+</p>
+
+#### Results
+
+<p>
+</p>
+
+
+# Conclusion and Contribution 
