@@ -1,5 +1,5 @@
 ---
-title: "Arousal Analysis Portfolio__The Sonic Signitures of High-Arousal Tracks"
+title: "The Algorithmic Blues: An Exploration of AI-Generated Musical Features in Blues Rock and Delta Blues_Onni_Qi_14558521"
 output:
   flexdashboard::flex_dashboard:
     storyboard: true
@@ -106,31 +106,37 @@ key_templates <-
 
 ### My Background 
 
-<p>
-my research interest, interest in music, favorite blues musicians, why blues music, why ai blues music, why i wnat to find out 
+<p style="text-indent: 2em; line-height: 1.8;">
+I'm Onni and a junior studying Media and Information. Ever since its popularization, I have been interested in studying AI and music production. As a matter of fact, I am currently writing my BA Thesis on this very topic! 
 </p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+For me, music has always been a crucial part of my life. 12 years ago I picked up my first ever guitar and started playing and performing music. For me, music is how I meet people and connect with them. It has always been heavily centered around "people". I guess that is why I am so fascinated by AI-generated music, because, how do symbol-manipulating machines make music that sounds just as good, or in many case, even better than human musicians? Although I recognize the mathematical inner structures in music and the possibility that mastering this alone can create good music, but is that really so?  
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Blues is one of my favorite genres when it comes to music. There is simply something about it, something that I have always thought only human musicians have, til I generated two Blues tracks myself via suno.ai. Therefore, in this Portfolio, I present my findings and thoughts on the musical features of these two tracks, hoping to provide a better understanding of what AI Blues sound and look like. 
+</p>
+
 
 ## About My Tracks
 
 ### My Tracks
 
-<p>
-onni-q-1.mp3 and onni-q-2.mp3
+<p style="text-indent: 2em; line-height: 1.8;">
+The two tracks I am going to present are onni-q-1.mp3 and onni-q-2.mp3
 </p>
 
-<p>
-Blues rock licks and acoustic delta blues licks. the differences in instrumentalness, how ai captures the differences between blues rock and delta blues. 
+<p style="text-indent: 2em; line-height: 1.8;">
+onni-q-1.mp3 is a piece of Blues Rock guitar licks and onni-q-2.mp3 an acoustic Delta Blues guitar licks. Despite their differences in instrumentation and ultimately, genre, how does suno.ai capture other similarities and  differences between these two tracks? 
 </p>
 
-<p>
-suno.ai for music generation. 
-</p>
 
-<p>
+<p style="text-indent: 2em; line-height: 1.8;">
 prompt for onni-q-1.mp3: "play me some blues rock licks, electric guitar, blues solo, any key, any tempo, no percussion, no human vocal, melancholy." 
 </p>
 
-<p>
+<p style="text-indent: 2em; line-height: 1.8;">
 prompt for onni-q-2.mp3: "play me some acoustic delta blues, 65 bpm, melancholy, no percussion, no drum, just an acoustic guitar with heavy steel strings played with a glass glide."
 </p>
 
@@ -146,16 +152,11 @@ prompt for onni-q-2.mp3: "play me some acoustic delta blues, 65 bpm, melancholy,
 <source src="/Users/olenonniboi/Desktop/Computational Musicology/weekly assignments and portfolio/the thing/compmus-corpus-2025/onni-q-2.mp3" type="audio/mpeg">
 </audio>
 
-
-
-
 # Part I: Track-Level Features 
 
-## Class Corpus Chart I Tempo-Arousal
+## Tempo and Arousal
 
-### Class Corpus Chart I Tempo-Arousal
-
-
+### Tempo & Arousal
 
 ```{r}
 
@@ -212,25 +213,33 @@ ggplotly(p, tooltip = "text")
 
 ```
 
-
-  
 ### Findings:
 
-<p>
-With Chart I, I intend to illustrate the relation between the tempo of a song and its arousal.
+#### General Info
+
+<p style="text-indent: 2em; line-height: 1.8;">
+  The Tempo & Arousal chart above presents the tempo and arousal information of the class corpus (2025).
 </p>
 
-<p>
-Chart I indicates that the increase of tempo does not necessarily contribute to the increase of a song's arousal. Instead, it seems that most songs that sound more exciting and stimulating than others tend to have a tempo close to 100bpm.
+<p style="text-indent: 2em; line-height: 1.8;">
+  According to the chart, the tracks in compmus2025 have a wide range of tempo, varying from the lowest at about 70 bpm, to the highest just below 150 bpm, slightly twice as fast. 
 </p>
 
-<p>This means that there is a strong relation between valence and arousal.</p>
+#### On Tempo
 
-------------------------------------------------------------------------
+<p style="text-indent: 2em; line-height: 1.8;">
+Shown as two red dots on the graph, my tracks, onni-q-1 and onni-q-2, respectively, appear rather far from each other on the spectrum of tempo. This indicates that they are played at very different speed. Indeed, onni-q-1 (Blues Rock) locates at about 130 bpm while onni-q-2 (Delta Blues) at around 80 bpm. This sounds accurate enough when cheked with the actual audio, and it also makes sense with regard to the specifc genres these two tracks fall into, which could mean that suno.ai did a pretty neat job at generating these two tracks. 
+</p>
 
-## Class Corpus Chart II Tempo-Valence
+#### On Arousal
 
-### Class Corpus Chart II Tempo-Valence
+<p style="text-indent: 2em; line-height: 1.8;">
+Apart from their distinct tempo features, onni-q-1 and onni-q-2 seem to share a similar arousal level at about 4.6 to 5 out of 8. This is to say that they are neither low or high in energy level, potentially yielding an effect that makes you feel engaged and energized, perhaps even uplifted, though not overwhelmed or agitated. This can also be proven true after listening to these two tracks.  
+</p>
+
+## Tempo and Valence
+
+### Tempo & Valence
 
 ```{r}
 
@@ -287,238 +296,637 @@ ggplotly(p, tooltip = "text")
 
 ```
 
-
 ### Findings:
 
-<p>
-With Chart II, I intend to illustrate the relation between the valence of a song and its arousal.
+#### General Info 
+
+<p style="text-indent: 2em; line-height: 1.8;">
+The Tempo & Valence chart above presents the tempo and valence information of the class corpus (2025).
 </p>
 
-<p>
-Chart II indicates that the increase of valence does clearly contribute to the increase of a song's arousal. Indeed, it seems that the more positive and pleasant a piece of music sound, the more exciting and stimulating it would be.
+<p style="text-indent: 2em; line-height: 1.8;">
+As shown in the previous chart as well, the tracks in compmus2025 have a wide range of tempo, varying from the lowest at about 70 bpm, to the highest just below 150 bpm, slightly twice as fast.
 </p>
 
+#### On Tempo
 
+<p style="text-indent: 2em; line-height: 1.8;">
+As shown in the previous chart, the two red dots on the graph, my tracks, onni-q-1 and onni-q-2, respectively, appear rather far from each other on the spectrum of tempo. This indicates that they are played at very different speed. Indeed, onni-q-1 (Blues Rock) locates at about 130 bpm while onni-q-2 (Delta Blues) at around 80 bpm. This sounds accurate enough when cheked with the actual audio, and it also makes sense with regard to the specifc genres these two tracks fall into, which could mean that suno.ai did a pretty neat job at generating these two tracks. 
+</p>
+
+#### On Valence
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Yet, despite their great difference in tempo, onni-q-1 (Blues Rock) and onni-q-2 (Delta Blues) share a shocking similarity with regard to their valence, both locating at about 5 (out of 8). First of all, this shows that they share a slightly more similar valence than arousal. Second of all, having a moderately positive emotional tone suggest that they are generally positive, yet not extremely happy or energetic. Instead, they could sound balanced or mildly cheerful, and potentially uplifting. 
+</p>
 
 # Part II: Chroma-Features
 
 ## graphs
 
-### onni-q-1
+### onni-q-1 Chroma Features 
 <div style="display: flex; overflow-x: auto; width: 100%;">
-
-  <div style="flex: 0 0 auto; margin-right: 10px;">
-<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/chromagrams/onni-q-1-chroma.png" style="max-width: 450px; height: auto;">
-  </div>
-  
-  <div style="flex: 0 0 auto; margin-right: 10px;">
-<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/cepstrogram/onni-q-1-cep.png" style="max-width: 450px; height: auto;">
-  </div>
-  
-  <div style="flex: 0 0 auto; margin-right: 10px;">
-<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/cbss/onni-q-1-cbss.png" style="max-width: 450px; height: auto;">
-  </div>
-  
-  <div style="flex: 0 0 auto; margin-right: 10px;">
-<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/Key/onni-q-1-key.png" style="max-width: 450px; height: auto;">
-  </div>
-
-  <div style="flex: 0 0 auto;">
-<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/Chord/onni-q-1-chord.png" style="max-width: 450px; height: auto;">
-  </div>
-  
+<figure style="flex: 0 0 auto; margin-right: 10px; text-align: center;">
+    <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/chromagrams/onni-q-1-chroma.png" style="max-width: 450px; height: auto; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption>onni-q-1-Chromagram</figcaption>
+  </figure>
+<figure style="flex: 0 0 auto; margin-right: 10px; text-align: center;">
+    <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/Key/onni-q-1-key.png" style="max-width: 450px; height: auto; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption>onni-q-1-Keygram</figcaption>
+  </figure>
+<figure style="flex: 0 0 auto; margin-right: 10px; text-align: center;">
+    <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/Chord/onni-q-1-chord.png" style="max-width: 450px; height: auto; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption>onni-q-1-Chordogram</figcaption>
+  </figure>
+<figure style="flex: 0 0 auto; text-align: center;">
+    <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/cbss/onni-q-1-cbss.png" style="max-width: 450px; height: auto; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption>onni-q-1-Chroma-Based Self-Similarity</figcaption>
+</figure>
 </div>
 
 ### Findings:
 
-<p>With Chart III, I intend to illustrate the relations between these factors: approachability, arousal, valence, and engagingness. According to Chart III, it is clear that with the increase in approachability, there does not occurs a similar change in arousal, valence, as well as engagingness, vice versa.</p>
+#### onni-q-1 Chromagram 
 
-<p>
-Chart III indicates a weak relation between approachability and the other three features. More importantly, this means that whether or not a piece of music is exciting has very little to do with its approachability.
+<p style="text-indent: 2em; line-height: 1.8;">
+Upon first look, the chromagram for the track onni-q-1 (Blues Rock) spans a whopping 200 seconds, which is quite substantial for a guitar solo accompanied with drum, bass, and other background instruments. This suggests that we shall be expecting a series of development of phrases and ideas in the track. 
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+The plot shows fluctuating activities across all 12 pitch classes during the entire song (C, C#, D, D#, E, F, F#, G, G#, A, A#, B). The light green color indicates periods of time where a specific pitch class is more prominent than others. There are horizontal bands of light green that persist for a relatively longer period of time, which suggest that they are closer to the melodic center. The vertical alignments of light green indicate the presence of chords or polyphonic textures. 
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Upon a closer look at the track's pitch class activities, it is noticeable that these pitch classes are more prominent than others: Bb, Db, Eb, E, F, Ab. This suggests that the track is likely based on the Bb Minor Blues Scales which consists of <strong>Bb (Root)</strong>, <strong>Db (Minor Third)</strong>, Eb (Perfect Fourth), <strong>E (Diminished Fifth/Blue Note)</strong>, <strong>F (Perfect 5th)</strong>, and <strong>Ab (Minor Seventh)</strong>. 
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Apart from that, the vertical alignments of light green appear to vary across the entire piece, which suggests some underlying chord progressions provided by other instruments such as bass and rhythmic guitar. 
+</p>
+
+#### onni-q-1 Keygram 
+
+<p style="text-indent: 2em; line-height: 1.8;">
+The afore-mentioned findings in onni-q-1-Chromagram can also be seen in the track's Keygram. As shown in the plot, there occurs a great deal of darkened areas around Bb: maj, Bb: min, Db: maj, Eb: maj, F: min, Gb: maj, Ab: maj, which re-enforce the insight that the track onni-q-1 (Blues Rock) is played on a Bb Minor Blues Scale. 
+</p>
+
+#### onni-q-1 Chordogram
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Based on the Chordogram, it is evident that many chords from the key of Bb minor are played throughout the song, including major, minor, and 7th chords. They include Bb: maj, Bb: min, Bb: 7, Db: maj, Eb: maj, E: maj, E: 7, F: maj, F: 7, Ab: maj, as well as Ab: 7. 
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Blues music is heavily based on dominant 7th chords, as they create a tension due to the presence of the tritone interval between the minor third (Db) and the minor seventh (Ab). It is no surprise that the plot captured this feature. 
+
+#### onni-q-1 Chroma-Based Self-Similarity 
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Observing the Chroma-Based Self-Similarity graph, it is clear that there appears to be a significant amount of small diagonal lines parallel to the main diagonal line and small blocks of similar color. They indicate a large amount of repetition and recurring harmonic materials throughout the piece. This is typically true for a Blues Rock guitar solo and can be proven by listening to the piece. 
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Although there are many repetitions in the piece, due to the complexity of the overall patterns of the plot, it is likely that these repetitions and similarities are not exactly copy-paste. Apart from that, the texture of the plot seems relatively consistent in terms of the types of recurring patterns, which could mean that the piece has a coherent structure. This feature can also be implied from listening to the piece. 
 </p>
 
 ## graphs
 
-### onni-q-2
+### onni-q-2 Chroma Features
 
 <div style="display: flex; overflow-x: auto; width: 100%;">
 
-  <div style="flex: 0 0 auto; margin-right: 10px;">
-<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/chromagrams/onni-q-2-chroma.png" style="max-width: 450px; height: auto;">
-  </div>
-  
-  <div style="flex: 0 0 auto; margin-right: 10px;">
-<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/cepstrogram/onni-q-2-cep.png" style="max-width: 450px; height: auto;">
-  </div>
-  
-  <div style="flex: 0 0 auto; margin-right: 10px;">
-<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/cbss/onni-q-2-cbss.png" style="max-width: 450px; height: auto;">
-  </div>
-  
-<div style="flex: 0 0 auto; margin-right: 10px;">
-<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/Key/onni-q-2-key.png" style="max-width: 450px; height: auto;">
-  </div>
+<figure style="flex: 0 0 auto; margin-right: 10px; text-align: center;">
+    <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/chromagrams/onni-q-2-chroma.png" style="max-width: 450px; height: auto; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption>onni-q-2-Chromagram</figcaption>
+  </figure>
 
-  <div style="flex: 0 0 auto;">
-<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/Chord/onni-q-2-chord.png" style="max-width: 450px; height: auto;">
-  </div>
+<figure style="flex: 0 0 auto; margin-right: 10px; text-align: center;">
+    <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/Key/onni-q-2-key.png" style="max-width: 450px; height: auto; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption>onni-q-2-Keygram</figcaption>
+  </figure>
+
+<figure style="flex: 0 0 auto; margin-right: 10px; text-align: center;">
+    <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/Chord/onni-q-2-chord.png" style="max-width: 450px; height: auto; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption>onni-q-2-Chordogram</figcaption>
+  </figure>
+
+<figure style="flex: 0 0 auto; text-align: center;">
+    <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/cbss/onni-q-2-cbss.png" style="max-width: 450px; height: auto; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption>onni-q-2-Chroma-Based Self-Similarity</figcaption>
+  </figure>
+  
+</div>
+
+
+### Findings:
+
+#### onni-q-2 Chromagram 
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Upon first look, the chromagram for the track onni-q-2 (Dela Blues) spans roughly 125 seconds, which is slightly over half of the length of the previosu track onni-q-1 (Blues Rock). This suggests that we shall be expecting fewer developments of phrases and ideas in the track. 
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+The plot shows fluctuating activities across all 12 pitch classes during the entire song (C, C#, D, D#, E, F, F#, G, G#, A, A#, B). The light green color indicates periods of time where a specific pitch class is more prominent than others. There are horizontal bands of light green that persist for a relatively longer period of time, which suggest that they are closer to the melodic center. The vertical alignments of light green indicate the presence of chords or polyphonic textures, although there are fewer vertical alignment of light green in this particular piece. 
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Upon a closer look at the track's pitch class activities, it is noticeable that these pitch classes are more prominent than others: D, E, F, F#, A, and B. This suggests that the track is likely based on the D Major Blues Scale which consists of <strong>D (Root)</strong>, <strong>E (Major 2nd)</strong>, <strong>F (Minor 3rd)</strong>, <strong>F# (Major Third - Blue Note)</strong>, <strong>A (Perfect Fifth)</strong>, as well as <strong>B (Major Sixth)</strong>.
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Apart from that, there are fewer vertical alignments of light green varying across the entire piece in onni-q-2 (Delta Blues), which suggests fewer underlying chord progressions that are usually provided by other instruments such as bass and rhythmic guitar. This makes perfect sense because onni-q-2 (Delta Blues) is entirely an acoustic guitar solo, not accompanied by any other back-up instruments. 
+</p>
+
+
+#### onni-q-2 Keygram 
+
+<p style="text-indent: 2em; line-height: 1.8;">
+The afore-mentioned findings in onni-q-1-Chromagram can also be seen in the track's Keygram. As shown in the plot, there occurs a great deal of darkened areas around D: maj, D: min, E: maj, E: min, F: maj, F#: min, A: maj, A: min, and B: min, which re-enforce the insight that the track onni-q-2 (Delta Blues) is played on a D Major Blues Scale. 
+</p>
+
+#### onni-q-2 Chordogram
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Based on the Chordogram, it is evident that many chords from the key of D major are played throughout the song, including major, minor, and 7th chords. They include D: maj, D: min, D: 7, E: maj, E: 7, F: maj, F: 7, F#: min, A: maj, A: min, A: 7, B: min, as well as B: 7. 
+</p>
+
+
+#### onni-q-2 Chroma-Based Self-Similarity 
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Observing the Chroma-Based Self-Similarity graph, it is clear that there appears to be a significant amount of  small blocks of similar color. They indicate a large amount of repetition and recurring harmonic materials throughout the piece. This is typically true for a Blues Rock guitar solo and can be proven by listening to the piece. Compared to onni-q-1 (Bles Rock), onni-q-2 seems to have larger blocks of similar color and fewer small diagonal lines parallel to the main diagonal line and more bright yellow horizontal/vertical lines, which could imply that onni-q-2 (Delta Blues) has larger sections of similar repetitions, more pronunced sections of novelty, and less emphasis on the exact repetition of short, identifiable riffs. 
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Although there are many repetitions in the piece, due to the complexity of the overall patterns of the plot, it is likely that these repetitions and similarities are not exactly copy-paste. Apart from that, the texture of the plot seems less consistent in terms of the types of recurring patterns compared to onni-q-1, which could mean that this second piece has a less coherent structure. This feature can also be implied from listening to the piece. 
+</p>
+
+# Part III: Timbre Features 
+
+## graphs 
+
+### onni-q-1 Timbre Features
+
+<div style="display: flex; overflow-x: auto; width: 100%;">
+
+<figure style="flex: 0 0 auto; margin-right: 10px; text-align: center;">
+    <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/tbss/onni-q-1-tbss.png" style="max-width: 450px; height: auto; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption>onni-q-1-Timbre-Based Self-Similarity</figcaption>
+  </figure>
+
+<figure style="flex: 0 0 auto; margin-right: 10px; text-align: center;">
+    <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/cepstrogram/onni-q-1-cep.png" style="max-width: 450px; height: auto; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption>onni-q-1-Cepstrogram</figcaption>
+  </figure>
+
+<figure style="flex: 0 0 auto; margin-right: 10px; text-align: center;">
+    <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/SN/onni-q-1-sn.png" style="max-width: 450px; height: auto; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption>onni-q-1-Spectral-Based Novelty Function</figcaption>
+  </figure>
+  
+</div> 
+
+### Findings:
+
+#### onni-q-1 Timbre-Based Self-Similarity 
+
+<p style="text-indent: 2em; line-height: 1.8;">
+The Timbre-Based Self-Similarity Matrices of onni-q-1 (Blues Rock) presents a a significant amount of darker areas off the diagonal, indicating substantial repetition of similar timbral characteristics throughout the piece. This possibly means that a very specific underlying sonic texture is re-visited over and over again, which can also be implied from the re-occurring dark horizontal and vertical bands. 
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+The plot presents several large blocks of similar color (5 in tatal), suggesting there are large sections that share very similar timbral characteristics with other sections. Knowing that onni-q-1 (Blues Rock) is a Blues Rock Guitar solo, this could represent several phrases played in the piece with consistent instrumentation and overall sound.
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Although there appear a few bright horizontal and vertical lines, the majority of the plot indicates a rather consistent timbral feature. The organized look of the dark areas strongly suggests a well-defined musical form with recurring sections. 
+</p>
+
+#### onni-q-1 Cepstrogram 
+
+<p style="text-indent: 2em; line-height: 1.8;">
+According to the 0th MFCC in the plot, we can tell that there are changes in the perceived loudness of the sound throughout the piece, indicating fluctuating loudness levels with a dynamic range. 
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+The variations in the second row, the First MFCC, imply that the overall spectral balance of the track changes over time. This is due to the distinct yellow horizontal band with very different intensities, which suggests periods with different degree of brightness. 
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+The Cepstrogram in general suggests the presence of a specific timbral signatures that evolve over time and the  repetition of a certain sonic texture throughout the piece despite frequent transitions between different timbral states. The plot can also be roughly divided into 5 individual sections, echoing the track's Timbre-Based Similarity Matrices. 
+</p>
+
+#### onni-q-1 Spectral-Based Novelty Function 
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Similarly, the Spectral Novelty plot of onni-q-1 can also be roughly divided into 5 sections, as significant changes can be seen at around 50s, 90s, 140s, and 160s. 
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+The graph indicates a generally fluctuating level of spectral novelty throughout the piece, which means that the timbre and harmonic content are not static but are constantly evolving to some degree.
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+There are several prominent peaks at around 40s, 120s, and 160s, which could be specific introduction of new musical ideas, or significant shifts in instrumentation. 
+</p>
+
+## graphs 
+
+### onni-q-2 Timbre Features 
+
+<div style="display: flex; overflow-x: auto; width: 100%;">
+
+
+<figure style="flex: 0 0 auto; margin-right: 10px; text-align: center;">
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/tbss/onni-q-2-tbss.png" style="max-width: 450px; height: auto; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption>onni-q-2-Timbre-Based Self-Similarity</figcaption>
+  
+  </figure>
+  
+<figure style="flex: 0 0 auto; margin-right: 10px; text-align: center;">
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/cepstrogram/onni-q-2-cep.png" style="max-width: 450px; height: auto; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption>onni-q-2-Cepstrogram</figcaption>
+  </figure>
+  
+<figure style="flex: 0 0 auto; margin-right: 10px; text-align: center;">
+    <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/SN/onni-q-2-sn.png" style="max-width: 450px; height: auto; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption>onni-q-2-Spectral-Based Novelty Function</figcaption>
+  </figure>
+  
+  
 </div>
 
 ### Findings:
 
-<p>With Chart IV, I intend to illustrate the relations between these factors: instrumentalness, arousal, valence, and danceability. According to Chart IV, it is clear that with the increase in instrumentalness, there occurs a decrease in arousal, valence, as well as danceability, vice versa.</p>
+#### onni-q-2 Timbre-Based Self-Similarity 
+
+<p style="text-indent: 2em; line-height: 1.8;">
+The Timbre-Based Self-Similarity Matrices of onni-q-2 (Delta Blues) presents a a significant amount of darker areas off the diagonal, indicating substantial repetition of similar timbral characteristics throughout the piece. This possibly means that a very specific underlying sonic texture is re-visited over and over again, which can also be implied from the re-occurring dark horizontal and vertical bands. 
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+The plot presents a huge amount of small blocks of similar color, suggesting there are many small sections that share very similar timbral characteristics with other sections. This could mean that although the piece itself repeats a specific timbral feature throughout the song, it consists of many small changes in the overall structure. 
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Compared to onni-q-1, there appear way more bright horizontal and vertical lines in onni-q-2. The majority of the plot indicates a less consistent and even unpredictable timbral feature, indicating potential improvisations in the track. The unorganized look of the dark areas strongly suggests a less defined musical form with costant changes regarding its timbral features. 
+</p>
 
 
+#### onni-q-2 Cepstrogram 
 
-# PArt III: Timbre Features 
+<p style="text-indent: 2em; line-height: 1.8;">
+According to the 0th MFCC in the plot, we can tell that there are changes in the perceived loudness of the sound throughout the piece, indicating fluctuating loudness levels with a dynamic range, especially near the end of the track. 
+</p>
 
-## onni-q-1 Timbre-Based Self-Similarity 
+<p style="text-indent: 2em; line-height: 1.8;">
+The variations in the second row, the First MFCC, imply that the overall spectral balance of the track changes over time. This is due to the distinct yellow horizontal band with very different intensities, which suggests periods with different degree of brightness. Compared to onni-q-1, onni-q-2 seems to have a less stable and more various spectral structure. 
+</p>
 
-### onni-q-1 Timbre-Based Self-Similarity 
-
-<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/tbss/onni-q-1-tbss.png">
-
-
-### Findings:
-
-With Chart VII, I intend to illustrate the relations between these factors: valence, arousal, engagingness, and danceability. According to Chart VII, it is clear that with the increase in valence, there occurs an increase in arousal, engagingness, as well as danceability, vice versa.
-
-## onni-q-2 Timbre-Based Self-Similarity 
-
-### onni-q-2 Timbre-Based Self-Similarity 
-
-<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/tbss/onni-q-2-tbss.png">
+<p style="text-indent: 2em; line-height: 1.8;">
+The Cepstrogram in general suggests the presence of a specific timbral signatures that evolve over time and the  repetition of a certain sonic texture throughout the piece despite frequent transitions between different timbral states. Different from onni-q-1, this track cannot be divided into sections and thus lacks an organized overall structure, which means it could potentially sound more interesting and less repetitive.
+</p>
 
 
-### Findings:
+#### onni-q-2 Spectral-Based Novelty Function 
 
-With Chart VII, I intend to illustrate the relations between these factors: valence, arousal, engagingness, and danceability. According to Chart VII, it is clear that with the increase in valence, there occurs an increase in arousal, engagingness, as well as danceability, vice versa.
+<p style="text-indent: 2em; line-height: 1.8;">
+Similarly, the Spectral Novelty plot of onni-q-2 can not be divided into any sections, as there are no visible divisions. 
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+The graph indicates a generally fluctuating level of spectral novelty throughout the piece, which means that the timbre and harmonic content are not static but are constantly evolving to some degree.
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+There are several prominent peaks at around 10s, 40s, and 100s, which could be specific introduction of new musical ideas, or significant shifts in instrumentation. 
+</p>
 
 
 # Part IV: Temporal Features 
 
 ## graphs
 
-### onni-q-1
+### onni-q-1 Temporal Features 
 <div style="display: flex; overflow-x: auto; width: 100%;">
-  <div style="flex: 0 0 auto; margin-right: 10px;">
 
-<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/EN/onni-q-1-en.png" style="max-width: 450px; height: auto;">
-  </div>
-  <div style="flex: 0 0 auto; margin-right: 10px;">
-
-<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/SN/onni-q-1-sn.png" style="max-width: 450px; height: auto;">
-  </div>
-  <div style="flex: 0 0 auto;">
+<figure style="flex: 0 0 auto; margin-right: 10px; text-align: center;">
+    <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/EN/onni-q-1-en.png" style="max-width: 450px; height: auto; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption>onni-q-1-Energy-Based Novelty Function</figcaption>
+  </figure>
   
-<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/Tempo/onni-q-1-tp.png" style="max-width: 450px; height: auto;">
-  </div>
-  <div style="flex: 0 0 auto;">
+<figure style="flex: 0 0 auto; margin-right: 10px; text-align: center;">
+  <img src= "/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/Tempo/onni-q-1-tp.png" style="max-width: 450px; height: auto; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption>onni-q-1-Tempogram</figcaption>
+  </figure>
+  
+<figure style="flex: 0 0 auto; margin-right: 10px; text-align: center;">
+  <img src= "/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/C-Tempo/onni-q-1-ctp.png" style="max-width: 450px; height: auto; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption>onni-q-1-Cyclic Tempogram</figcaption>
+  </figure>
 
-<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/C-Tempo/onni-q-1-ctp.png" style="max-width: 450px; height: auto;">
-  </div>
 </div>
 
 ### Findings:
 
-<p>With Chart III, I intend to illustrate the relations between these factors: approachability, arousal, valence, and engagingness. According to Chart III, it is clear that with the increase in approachability, there does not occurs a similar change in arousal, valence, as well as engagingness, vice versa.</p>
+#### onni-q-1 Energy-Based Novelty Function 
 
-<p>
-Chart III indicates a weak relation between approachability and the other three features. More importantly, this means that whether or not a piece of music is exciting has very little to do with its approachability.
+<p style="text-indent: 2em; line-height: 1.8;">
+Overall, the plot presents a series of sharp peaks of varying heights throughout the track. This means that there are frequent moments of sudden increase of energy, indicating a highly level of rhythmical activity. 
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Several prominent energy onsets take place at around 45s, 90s, 160s, and 180s. Similar to the Spectral-Based Novelty plot of the same track, this plot also suggests an organized structure that can be divided into five sections. 
+</p>
+
+#### onni-q-1 Tempogram
+
+<p style="text-indent: 2em; line-height: 1.8;">
+According to the Tempogram, the most prominent bright bands appear to be about 80 bpm,  190 bpm (roughly twice as much), 280 bpm (roughly three times), 390 bpm (roughly 5 times), 470 bpm (roughly 6 tiems), 580 bpm (roughly 7 times. Although the numbers do not add up obviously, it could be implied that the estimated tempo for the track is about 80 to 90 bpm as the numbers center around n * 80 bpm. 
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Upon observing the overall structure of the Tempogram, it seems that the track has a steady and stable tempo, despite slight disturbance at about 50s and near the end of the track. The drum beat in the track might have helped with calculating the tempo. 
+</p>
+
+#### onni-q-1 Cyclic Tempogram
+
+<p style="text-indent: 2em; line-height: 1.8;">
+According to the Cyclic Tempogram, which offer a narrower range of tempos, the most prominent bright bands appear to be around 96 bpm - 100 bpm, suggesting a strong and sustained tempo throughout the track. Another two noticeable yet less bright bands occur at around 120 bpm and 140 bpm, implying two faster and less consistently emphasized tempos. 
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Similar to the previous Tempogram, the Cyclic Tempogram also indicates that the track has a steady and stable tempo, despite slight disturbance at about 50s and near the end of the track. The drum beat in the track might have helped with calculating the tempo. 
 </p>
 
 ## graphs
 
-### onni-q-2
+### onni-q-2 Temporal Features 
 
 <div style="display: flex; overflow-x: auto; width: 100%;">
-  <div style="flex: 0 0 auto; margin-right: 10px;">
 
-<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/EN/onni-q-2-en.png" style="max-width: 450px; height: auto;">
-  </div>
-  <div style="flex: 0 0 auto; margin-right: 10px;">
-
-<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/SN/onni-q-2-sn.png" style="max-width: 450px; height: auto;">
-  </div>
-  <div style="flex: 0 0 auto;">
+  <figure style="flex: 0 0 auto; margin-right: 10px; text-align: center;">
+    <img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/EN/onni-q-2-en.png" style="max-width: 450px; height: auto; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption>onni-q-2-Energy-Based Novelty Function</figcaption>
+  </figure>
   
-<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/Tempo/onni-q-2-tp.png" style="max-width: 450px; height: auto;">
-  </div>
-  <div style="flex: 0 0 auto;">
+  <figure style="flex: 0 0 auto; margin-right: 10px; text-align: center;">
+  <img src= "/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/Tempo/onni-q-2-tp.png" style="max-width: 450px; height: auto; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption>onni-q-2-Tempogram</figcaption>
+  </figure>
+  
+   <figure style="flex: 0 0 auto; margin-right: 10px; text-align: center;">
+  <img src= "/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/C-Tempo/onni-q-2-ctp.png" style="max-width: 450px; height: auto; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption>onni-q-2-Cyclic Tempogram</figcaption>
+  </figure>
 
-<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/C-Tempo/onni-q-2-ctp.png" style="max-width: 450px; height: auto;">
-  </div>
 </div>
 
 ### Findings:
 
-<p>With Chart IV, I intend to illustrate the relations between these factors: instrumentalness, arousal, valence, and danceability. According to Chart IV, it is clear that with the increase in instrumentalness, there occurs a decrease in arousal, valence, as well as danceability, vice versa.</p>
+#### onni-q-1 Energy-Based Novelty Function 
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Overall, the plot presents a series of sharp peaks of varying heights throughout the track. This means that there are frequent moments of sudden increase of energy, indicating a highly level of rhythmical activity. 
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Several prominent energy onsets take place at around 5s, 50s, 160s, and 115s. Similar to the Spectral-Based Novelty plot of the same track, this plot also suggests an unorganized structure that can not be divided into sections. 
+</p>
+
+#### onni-q-1 Tempogram
+
+<p style="text-indent: 2em; line-height: 1.8;">
+According to the Tempogram, the most prominent bright bands appear to be about 110 bpm,  230 bpm (roughly twice as much), 370 bpm (roughly three times), 480 bpm (roughly 4 times), 600 bpm (roughly 6 tiems). Although the numbers do not add up obviously, it could be implied that the estimated tempo for the track is about 110 to 120 bpm as the numbers center around n * 110 bpm. 
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Upon observing the overall structure of the Tempogram, it seems that the track has a less steady and stable tempo compared to onni-q-1. Despite a strong indication of the possible tempo, the bright bands seem to lack a structural stability, with multiple disturbances at 25s, 75s, and near the end of the track. The fact that this was a guitar solo
+</p>
+
+#### onni-q-1 Cyclic Tempogram
+
+<p style="text-indent: 2em; line-height: 1.8;">
+According to the Cyclic Tempogram, which offer a narrower range of tempos, the most prominent bright bands appear to be around 120 bpm, although the band itself appear less sustained and consistent. Another two noticeable yet less bright bands occur at around 90 bpm and 150 bpm, implying two faster and less consistently emphasized tempos. 
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Similar to the previous Tempogram, the Cyclic Tempogram also indicates that the track has a slightly unsteady and unstable tempo, with multiple disturbance during track. 
+</p>
 
 
 # Part V: Hierarchical Clustering
 
 ## Euc
 
-### Euclidean
+### Distance = Euclidean
 
 <div style="display: flex; overflow-x: auto; width: 100%;">
-  <div style="flex: 0 0 auto; margin-right: 10px;">
+ 
+<figure style="flex: 0 0 auto; margin-right: 10px; text-align: center;">
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/cluster/HC/un-highlighted/euc/single.png" style="max-width: 450px; height: auto; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption>method = single</figcaption>
+  </figure>
+  
+ <figure style="flex: 0 0 auto; margin-right: 10px; text-align: center;">
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/cluster/HC/un-highlighted/euc/average.png" style="max-width: 450px; height: auto; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption>method = average</figcaption>
+  </figure>
 
-<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/cluster/HC/un-highlighted/euc/single.png" style="max-width: 450px; height: auto;">
-  </div>
-  <div style="flex: 0 0 auto; margin-right: 10px;">
-
-<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/cluster/HC/un-highlighted/euc/average.png" style="max-width: 450px; height: auto;">
-  </div>
-  <div style="flex: 0 0 auto;">
-
-<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/cluster/HC/un-highlighted/euc/complete.png" style="max-width: 450px; height: auto;">
-  </div>
+<figure style="flex: 0 0 auto; margin-right: 10px; text-align: center;">
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/cluster/HC/un-highlighted/euc/complete.png" style="max-width: 450px; height: auto; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption>method = complete</figcaption>
+  </figure>
+  
 </div>
 
 ### Analysis 
 
-#### Expectations 
+#### Distance = Euclidean 
 
-<p> 
+<p style="text-indent: 2em; line-height: 1.8;">
+In the three plots above, the Euclidean distance was used as the metric to measure the dissimilarity between the data points being clustered, in this case, all the tracks and their musical features in compmus2025. Euclidean distance is a common measure of the straight-line distance between two points in a multi-dimensional space.
 </p>
 
-#### Results
+#### Method = Single 
 
-<p>
+<p style="text-indent: 2em; line-height: 1.8;">
+In this plot, the distance level range from 0.0 to 1.5, which is the lowest compared to the other two linkage methods with Euclidean distance. 
 </p>
 
+<p style="text-indent: 2em; line-height: 1.8;">
+There appear several relatively tight clusters forming at lower dissimilarity levels, which potentially makes it hard to read and differentiate the clusters.
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Besides, in the case of the two tracks I have submitted, which I have marked with red circles on the plot, they seem to be further away from each other than I expect they should be. Thus, the single linkage method is not my favorite. 
+</p>
+
+#### Method = Average
+
+<p style="text-indent: 2em; line-height: 1.8;">
+In this plot, the distance level range from 0.0 to 4.0, which is neither too big or small compared to the other two linkage methods with Euclidean distance.
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Average linkage tends to produce more balanced and well-defined clusters compared to single linkage, which can sometimes lead to "chaining" where individual points or small clusters are added one by one to larger clusters.
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+As for the two tracks I have submitted, which I have marked with red circles on the plot, they seem to be closer to each other than the previous plot. Thus, I prefer average linkage over single linkage.  
+</p>
+
+#### Method = Complete 
+
+<p style="text-indent: 2em; line-height: 1.8;">
+In this plot, the distance level range from 0.0 to 8.0, which is the highest compared to the other two linkage methods with Euclidean distance.
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Compared to the two previous methods, complete linkage produce even more compact and well-separated clusters and is more sensitive to outliers than average linkage.
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+In the case of the two tracks I have submitted, which I have marked with red circles on the plot, their distance seem to be what I have expected. Thus, the complete linkage method is my favorite. 
+</p>
 
 ## Mht
 
-### Manhattan
+### Distance = Manhattan
 
 <div style="display: flex; overflow-x: auto; width: 100%;">
-  <div style="flex: 0 0 auto; margin-right: 10px;">
-
-<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/cluster/HC/un-highlighted/mht/single.png" style="max-width: 450px; height: auto;">
-  </div>
-  <div style="flex: 0 0 auto; margin-right: 10px;">
-
-<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/cluster/HC/un-highlighted/mht/ave.png" style="max-width: 450px; height: auto;">
-  </div>
-  <div style="flex: 0 0 auto;">
-
-<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/cluster/HC/un-highlighted/mht/complete.png" style="max-width: 450px; height: auto;">
-  </div>
+  
+<figure style="flex: 0 0 auto; margin-right: 10px; text-align: center;">
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/cluster/HC/un-highlighted/mht/single.png" style="max-width: 450px; height: auto; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption>method = single</figcaption>
+  </figure>
+  
+  <figure style="flex: 0 0 auto; margin-right: 10px; text-align: center;">
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/cluster/HC/un-highlighted/mht/average.png" style="max-width: 450px; height: auto; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption>method = average</figcaption>
+  </figure>
+  
+ <figure style="flex: 0 0 auto; margin-right: 10px; text-align: center;">
+<img src="/Users/olenonniboi/Desktop/Computational Musicology/Graphs/final/cluster/HC/un-highlighted/mht/complete.png" style="max-width: 450px; height: auto; display: block; margin-left: auto; margin-right: auto;">
+    <figcaption>method = complete</figcaption>
+  </figure>
 </div>
 
 ### Analysis 
 
-#### Expectations 
+#### Distance = Manhattan
 
-<p> 
+<p style="text-indent: 2em; line-height: 1.8;">
+In the three plots above, the Manhattan distance was used as the metric to measure the dissimilarity between the data points being clustered, in this case, all the tracks and their musical features in compmus2025. Manhattan distance calculates the distance between two points by summing the absolute differences of their coordinates. Using Manhattan distance instead of Euclidean distance influences how dissimilarity is measured.
 </p>
 
-#### Results
+#### Method = Single 
 
-<p>
+<p style="text-indent: 2em; line-height: 1.8;">
+In this plot, the distance level range from 0.0 to 3.0, which is the lowest compared to the other two linkage methods with Euclidean distance. 
 </p>
 
+<p style="text-indent: 2em; line-height: 1.8;">
+Similarly, there appear several relatively tight clusters forming at lower dissimilarity levels, which potentially makes it hard to read and differentiate the clusters.
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Besides, in the case of the two tracks I have submitted, which I have marked with red circles on the plot, they seem to be further away from each other than I expect they should be. Thus, the single linkage method is not my favorite. 
+</p>
+
+#### Method = Average
+
+<p style="text-indent: 2em; line-height: 1.8;">
+In this plot, the distance level range from 0.0 to 8.0, which is neither too big or small compared to the other two linkage methods with Manhattan distance.
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Average linkage tends to produce more balanced and well-defined clusters compared to single linkage, which can sometimes lead to "chaining" where individual points or small clusters are added one by one to larger clusters.
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+As for the two tracks I have submitted, which I have marked with red circles on the plot, they seem to be closer to each other than the previous plot. Thus, I prefer average linkage over single linkage.  
+</p>
+
+#### Method = Complete 
+
+<p style="text-indent: 2em; line-height: 1.8;">
+In this plot, the distance level range from 0.0 to 15.0, which is the highest compared to the other two linkage methods with Euclidean distance and Manhattan distance.
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Compared to the two previous methods, complete linkage produce even more compact and well-separated clusters and is more sensitive to outliers than average linkage. However, a distance range from 0.0 to 15.0 seems a bit too much, as the clusters seem to appear slight too late.  
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+In the case of the two tracks I have submitted, which I have marked with red circles on the plot, their distance seem to be slightly further from what I have expected. Thus, the complete linkage method is not my favorite. 
+</p>
 
 # Conclusion and Contribution 
+
+## Overview
+
+### Overview 
+
+<p style="text-indent: 2em; line-height: 1.8;">
+In this Portfolio, I present a series of analysis on the two tracks I have submitted into the class corpus. Respectively, they are onni-q-1.mp3 (Blues Rock) and onni-q-2.mp3 (Delta Blues). They are both generated by suno.ai via my prompts. The purpose of this portfolio is to present the similarities and differences between the musical features of these two AI-generated Blues tracks, ranging from tempo, valence, to chroma and timbral features. 
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+In general, I have found interesting results and gained new insights on AI Blues music. Although merely two tracks might not say much, I do hope that this Portfolio could contribute to the understanding of AI generate music and Blues music specifically. 
+</p>
+
+## Part I: Track-Level Features 
+
+### Part I: Track-Level Features 
+
+<p style="text-indent: 2em; line-height: 1.8;">
+For the Track-Level Feature analysis, I decided to present the Tempo, Arousal, and Valence features of the two tracks, as I imagine they are the most prominent features of the tracks I submitted. Despite their dramatic difference in Tempo, both tracks share similar level at Arousal and Valence, with a moderate energy level and positive emotional tone.  
+</p>
+
+## Part II: Chroma-Features 
+
+### Part II: Chroma-Features 
+
+<p style="text-indent: 2em; line-height: 1.8;">
+According to their Chroma-based features, these two songs are identified with two classic Blues scales, Bb Minor and D Major Blues scales, respectively. This matches with my expectation. 
+</p>
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Compared to onni-q-2, onni-q-1 has a richer tonal texture as the Electric guitar in the track was accompanied by other background instruments. While onni-q-2 features am acoustic Delta Blues guitar solo. Considering the overall structure of the two tracks, onni-q-1 presents a clearer and more stable structure than onni-q-2. The latter seems to feature more improvisations and thus yield less predictability as well as fewer repetitions. 
+</p>
+
+## Part III: Timbre-Features 
+
+### Part III: Timbre-Features 
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Echoing the finding from the previous section, the comparison between the twp tracks' Timbral Features re-affirms their distinct structural features, with the former presenting a clearer structure, which potentially also results in less diversity in its Timbre features such as loudness and brightness. 
+</p>
+
+## Part IV: Temporal Features 
+
+### Part IV: Temporal Features 
+
+<p style="text-indent: 2em; line-height: 1.8;">
+While both track present a series of sharp peaks of varying heights throughout the track, onni-q-1 shows a clearer structure and more predictable placement of rhythmical activities. Apart from that, the Tempograms and Cyclic Tempograms indicate not only two distinct tempo features, but also the way they are structured, with onni-q-1 more stable and clearer than the latter. 
+</p>
+
+## Part V: Hierarchical Clustering 
+
+### Part V: Hierarchical Clustering 
+
+<p style="text-indent: 2em; line-height: 1.8;">
+Upon close comparisons over two distinct distance choices and their linkage methods, I personally find it most readable and effective to choose a Euclidean distance and complete linkage to clusterize the class corpus 2025, in the case of my own submitted tracks. This is due to the observation that under a euclidean distance, the complete linkage seem to produce more compact and well-separated clusters and seem more sensitive to outliers than average linkage. 
+</p>
+
+## Contribution 
+
+### Contribution 
+
+<p style="text-indent: 2em; line-height: 1.8;">
+In this Portfolio, I have presented my findings and insights on the musical features of two Blues tracks I submitted into the class corpus 2025, namely, Blues Rock guitar solo onni-q-1.mp3 and acoustic Delta Blues onni-q-2.mp3. During the observation, I have found multiple similarities and differences between these two tracks. In doing so, I hope to contribute to the current understanding of AI-generated music, in this case, AI Blues. Due to the limit of my research, these findings and conclusions may not apply to other AI-generated music or genres, future researches may expand the number of songs and genres to discover further the hidden patterns and musical features of AI-genrated music. 
+</p>
+
+
